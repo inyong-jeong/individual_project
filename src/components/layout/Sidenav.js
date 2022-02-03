@@ -11,7 +11,7 @@
 */
 
 // import { useState } from "react";
-import { getCookieValue } from '../../cmm/cmm.js';
+import { getCookieValue } from "../../cmm/cmm.js";
 import { Menu, Button } from "antd";
 import { NavLink, useLocation } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
@@ -221,7 +221,7 @@ function Sidenav({ color }) {
             <span className="label">일반/정기결제</span>
           </NavLink>
         </Menu.Item>
-        
+
         <Menu.Item key="4">
           <NavLink to="/rtl">
             <span
@@ -235,7 +235,7 @@ function Sidenav({ color }) {
             <span className="label">RTL</span>
           </NavLink>
         </Menu.Item>
-           {/* <Menu.Item key="5">
+        {/* <Menu.Item key="5">
           <NavLink to="/billing">
             <span
               className="icon"
@@ -261,7 +261,7 @@ function Sidenav({ color }) {
             <span className="label">일지 리스트</span>
           </NavLink>
         </Menu.Item>
-        <Menu.Item key="7">
+        {/* <Menu.Item key="7">
           <NavLink to="/Log">
             <span
               className="icon"
@@ -273,7 +273,7 @@ function Sidenav({ color }) {
             </span>
             <span className="label">일지작성</span>
           </NavLink>
-        </Menu.Item>
+        </Menu.Item> */}
         <Menu.Item key="8">
           <NavLink to="/calendar">
             <span
@@ -303,18 +303,22 @@ function Sidenav({ color }) {
             <span className="label">프로필</span>
           </NavLink>
         </Menu.Item>
-        {!getCookieValue('jwt') && <Menu.Item key="7">
-          <NavLink to="/sign-in">
-            <span className="icon">{signin}</span>
-            <span className="label">로그인</span>
-          </NavLink>
-        </Menu.Item>}
-        {!getCookieValue('jwt') &&<Menu.Item key="8">
-          <NavLink to="/sign-up">
-            <span className="icon">{signup}</span>
-            <span className="label">회원가입</span>
-          </NavLink>
-        </Menu.Item>}
+        {!getCookieValue("jwt") && (
+          <Menu.Item key="7">
+            <NavLink to="/sign-in">
+              <span className="icon">{signin}</span>
+              <span className="label">로그인</span>
+            </NavLink>
+          </Menu.Item>
+        )}
+        {!getCookieValue("jwt") && (
+          <Menu.Item key="8">
+            <NavLink to="/sign-up">
+              <span className="icon">{signup}</span>
+              <span className="label">회원가입</span>
+            </NavLink>
+          </Menu.Item>
+        )}
       </Menu>
       <div className="aside-footer">
         <div
@@ -328,7 +332,13 @@ function Sidenav({ color }) {
           </span>
           <h6>도움이 필요하세요?</h6>
           <p>Q/A 에서 무엇이든 물어보세요!</p>
-          <Button type="primary" className="ant-btn-sm ant-btn-block" onClick={() => {window.alert('서비스 준비중입니다.')}}>
+          <Button
+            type="primary"
+            className="ant-btn-sm ant-btn-block"
+            onClick={() => {
+              window.alert("서비스 준비중입니다.");
+            }}
+          >
             Manual
           </Button>
         </div>
