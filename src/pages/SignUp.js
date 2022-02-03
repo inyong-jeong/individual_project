@@ -10,7 +10,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 import React, { useState } from "react";
-import {getModal} from '../cmm/cmm.js'
+import { getModal } from "../cmm/cmm.js";
 import {
   Modal,
   Layout,
@@ -22,11 +22,11 @@ import {
   Input,
   Checkbox,
 } from "antd";
-import SignUpModal from "../components/SignIpModal";
+import SignUpModal from "../components/SignUpModal";
 import logo1 from "../assets/images/logos-facebook.svg";
 import logo2 from "../assets/images/logo-apple.svg";
 import logo3 from "../assets/images/Google__G__Logo.svg.png";
-import axios from 'axios'
+import axios from "axios";
 import { Link } from "react-router-dom";
 import {
   DribbbleOutlined,
@@ -35,7 +35,7 @@ import {
   GithubOutlined,
 } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
-import { USER_SERVER } from '../components/config';
+import { USER_SERVER } from "../components/config";
 
 const { Title } = Typography;
 const { Header, Footer, Content } = Layout;
@@ -120,229 +120,231 @@ const signin = [
   </svg>,
 ];
 export default function SignUp() {
-
   const history = useHistory();
-  
-    const onFinish = (values) => {
-      console.log("Success:", values);
-      axios.post(`${USER_SERVER}/register`, values)
-      .then(res => {
-        if(res.status === 200) {
-          console.log(res);
-          history.push('/sign-in')
-        }else {
-          alert('회원가입에 실패했습니다.')
-        }
-      })
-    };
 
-    const onFinishFailed = (errorInfo) => {
-      
-      console.log("Failed:", errorInfo);
-    };
+  const onFinish = (values) => {
+    console.log("Success:", values);
+    axios.post(`${USER_SERVER}/register`, values).then((res) => {
+      if (res.status === 200) {
+        console.log(res);
+        history.push("/sign-in");
+      } else {
+        alert("회원가입에 실패했습니다.");
+      }
+    });
+  };
 
-    const [focus, setFocus] = useState(false)
-    const [isModalVisible, setIsModalVisible] = useState(false)
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
 
+  const [focus, setFocus] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
-    const handleOnChange = () => {
-      setFocus(!focus);
-    }
-  
-    const handlePopup = () => {
-    setIsModalVisible(true)
-  }
-  
-    return (
-      <>
-        <Modal title='개인정보 및 이용방침' visible={isModalVisible}
-          cancelText={<span>닫기</span>}
-          okText={ <span>확인</span>}
-          onOk={() => { setIsModalVisible(false) }} onCancel={() => { setIsModalVisible(false) }}>
-          { getModal()}
-        </Modal>
-        <div className="layout-default ant-layout layout-sign-up">
-          <Header>
-            <div className="header-col header-brand">
-              <h5>And Then Some 대시보드</h5>
-            </div>
-            <div className="header-col header-nav">
-              <Menu mode="horizontal" defaultSelectedKeys={["1"]}>
-                <Menu.Item key="1">
-                  <Link to="/dashboard">
-                    {template}
-                    <span> 대시보드</span>
-                  </Link>
-                </Menu.Item>
-                <Menu.Item key="2">
-                  <Link to="/profile">
-                    {profile}
-                    <span>프로필</span>
-                  </Link>
-                </Menu.Item>
-                <Menu.Item key="3">
-                  <Link to="/sign-up">
-                    {signup}
-                    <span> 회원가입</span>
-                  </Link>
-                </Menu.Item>
-                <Menu.Item key="4">
-                  <Link to="/sign-in">
-                    {signin}
-                    <span> 로그인</span>
-                  </Link>
-                </Menu.Item>
-              </Menu>
-            </div>
-            <div className="header-col header-btn">
-              <Button type="false">무료 다운로드</Button>
-            </div>
-          </Header>
+  const handleOnChange = () => {
+    setFocus(!focus);
+  };
 
-          <Content className="p-0">
-            <div className="sign-up-header">
-              <div className="content">
-                <Title>회원가입</Title>
-                <p className="text-lg">
-                이 멋진 양식을 사용하여 무료로 프로젝트에 로그인하거나 새 계정을 만드세요.
-                </p>
-              </div>
-            </div>
+  const handlePopup = () => {
+    setIsModalVisible(true);
+  };
 
-            <Card
-              className="card-signup header-solid h-full ant-card pt-0"
-              title={<h5>간편로그인</h5>}
-              bordered="false"
-            >
-              <div className="sign-up-gateways">
-                <Button type="false"
-                  onClick={() => {
-                    window.alert('서비스 준비중입니다.')
-                  }}>
-                  <img src={logo1} alt="logo 1" />
-                </Button>
-                <Button type="false"
-                onClick={() => {
-                    window.alert('서비스 준비중입니다.')
-                  }}
-                >
-                  <img src={logo2} alt="logo 2" />
-                </Button>
-                <Button type="false"
-                onClick={() => {
-                    window.alert('서비스 준비중입니다.')
-                  }}
-                >
-                  <img src={logo3} alt="logo 3" />
-                </Button>
-              </div>
-              <p className="text-center my-25 font-semibold text-muted">Or</p>
-              <Form
-                name="basic"
-                initialValues={{ remember: true }}
-                onFinish={onFinish}
-                onFinishFailed={onFinishFailed}
-                className="row-col"
-              >
-                <Form.Item
-                  name="name"
-                  rules={[
-                    { required: true, message: "이름을 입력하세요!" },
-                  ]}
-                >
-                  <Input placeholder="이름" />
-                </Form.Item>
-                <Form.Item
-                  name="email"
-                  rules={[
-                    { required: true, message: "이메일을 입력하세요!" },
-                  ]}
-                >
-                  <Input placeholder="이메일" />
-                </Form.Item>
-                <Form.Item
-                  name="password"
-                  rules={[
-                    { required: true, message: "비밀번호를 입력하세요!" },
-                  ]}
-                >
-                  <Input placeholder="비밀번호" type='password' />
-                </Form.Item>
-
-                <Form.Item  valuePropName="checked"
-                >
-                  <Checkbox
-                  checked={focus}
-                  onChange={handleOnChange}
-                  >
-                    나는 동의합니다{" "}
-                    <a href="#pablo" className="font-bold text-dark" onClick={handlePopup }>
-                      개인정보 및 이용방침
-                    </a>
-                  </Checkbox>
-                </Form.Item>
-
-                <Form.Item>
-                  <Button
-                    disabled={!focus}
-                    style={{ width: "100%" }}
-                    type="primary"
-                    htmlType="submit"
-                  >
-                    회원가입
-                  </Button>
-                </Form.Item>
-              </Form>
-              <p className="font-semibold text-muted text-center">
-                이미 계정을 갖고 계신가요?{" "}
-                <Link to="/sign-in" className="font-bold text-dark">
-                  로그인
+  return (
+    <>
+      <Modal
+        title="개인정보 및 이용방침"
+        visible={isModalVisible}
+        cancelText={<span>닫기</span>}
+        okText={<span>확인</span>}
+        onOk={() => {
+          setIsModalVisible(false);
+        }}
+        onCancel={() => {
+          setIsModalVisible(false);
+        }}
+      >
+        {getModal()}
+      </Modal>
+      <div className="layout-default ant-layout layout-sign-up">
+        <Header>
+          <div className="header-col header-brand">
+            <h5>And Then Some 대시보드</h5>
+          </div>
+          <div className="header-col header-nav">
+            <Menu mode="horizontal" defaultSelectedKeys={["1"]}>
+              <Menu.Item key="1">
+                <Link to="/dashboard">
+                  {template}
+                  <span> 대시보드</span>
                 </Link>
+              </Menu.Item>
+              <Menu.Item key="2">
+                <Link to="/profile">
+                  {profile}
+                  <span>프로필</span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="3">
+                <Link to="/sign-up">
+                  {signup}
+                  <span> 회원가입</span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="4">
+                <Link to="/sign-in">
+                  {signin}
+                  <span> 로그인</span>
+                </Link>
+              </Menu.Item>
+            </Menu>
+          </div>
+          <div className="header-col header-btn">
+            <Button type="false">무료 다운로드</Button>
+          </div>
+        </Header>
+
+        <Content className="p-0">
+          <div className="sign-up-header">
+            <div className="content">
+              <Title>회원가입</Title>
+              <p className="text-lg">
+                이 멋진 양식을 사용하여 무료로 프로젝트에 로그인하거나 새 계정을
+                만드세요.
               </p>
-            </Card>
-          </Content>
-          <Footer>
-            <Menu mode="horizontal">
-              <Menu.Item>회사</Menu.Item>
-              <Menu.Item>가치</Menu.Item>
-              <Menu.Item>팀소개</Menu.Item>
-              <Menu.Item>제품소개</Menu.Item>
-              <Menu.Item>블로그</Menu.Item>
-              <Menu.Item>가격정책</Menu.Item>
-            </Menu>
-            <Menu mode="horizontal" className="menu-nav-social">
-              <Menu.Item>
-                <Link to="#">{<DribbbleOutlined />}</Link>
-              </Menu.Item>
-              <Menu.Item>
-                <Link to="#">{<TwitterOutlined />}</Link>
-              </Menu.Item>
-              <Menu.Item>
-                <Link to="#">{<InstagramOutlined />}</Link>
-              </Menu.Item>
-              <Menu.Item>
-                <Link to="#">
-                  <svg
-                    width="18"
-                    height="18"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512"
+            </div>
+          </div>
+
+          <Card
+            className="card-signup header-solid h-full ant-card pt-0"
+            title={<h5>간편로그인</h5>}
+            bordered="false"
+          >
+            <div className="sign-up-gateways">
+              <Button
+                type="false"
+                onClick={() => {
+                  window.alert("서비스 준비중입니다.");
+                }}
+              >
+                <img src={logo1} alt="logo 1" />
+              </Button>
+              <Button
+                type="false"
+                onClick={() => {
+                  window.alert("서비스 준비중입니다.");
+                }}
+              >
+                <img src={logo2} alt="logo 2" />
+              </Button>
+              <Button
+                type="false"
+                onClick={() => {
+                  window.alert("서비스 준비중입니다.");
+                }}
+              >
+                <img src={logo3} alt="logo 3" />
+              </Button>
+            </div>
+            <p className="text-center my-25 font-semibold text-muted">Or</p>
+            <Form
+              name="basic"
+              initialValues={{ remember: true }}
+              onFinish={onFinish}
+              onFinishFailed={onFinishFailed}
+              className="row-col"
+            >
+              <Form.Item
+                name="name"
+                rules={[{ required: true, message: "이름을 입력하세요!" }]}
+              >
+                <Input placeholder="이름" />
+              </Form.Item>
+              <Form.Item
+                name="email"
+                rules={[{ required: true, message: "이메일을 입력하세요!" }]}
+              >
+                <Input placeholder="이메일" />
+              </Form.Item>
+              <Form.Item
+                name="password"
+                rules={[{ required: true, message: "비밀번호를 입력하세요!" }]}
+              >
+                <Input placeholder="비밀번호" type="password" />
+              </Form.Item>
+
+              <Form.Item valuePropName="checked">
+                <Checkbox checked={focus} onChange={handleOnChange}>
+                  나는 동의합니다{" "}
+                  <a
+                    href="#pablo"
+                    className="font-bold text-dark"
+                    onClick={handlePopup}
                   >
-                    <path d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"></path>
-                  </svg>
-                </Link>
-              </Menu.Item>
-              <Menu.Item>
-                <Link to="#">{<GithubOutlined />}</Link>
-              </Menu.Item>
-            </Menu>
-            <p className="copyright">
-              {" "}
-              Copyright © 2021 And Then Some by <a href="#pablo">정인용</a>.{" "}
+                    개인정보 및 이용방침
+                  </a>
+                </Checkbox>
+              </Form.Item>
+
+              <Form.Item>
+                <Button
+                  disabled={!focus}
+                  style={{ width: "100%" }}
+                  type="primary"
+                  htmlType="submit"
+                >
+                  회원가입
+                </Button>
+              </Form.Item>
+            </Form>
+            <p className="font-semibold text-muted text-center">
+              이미 계정을 갖고 계신가요?{" "}
+              <Link to="/sign-in" className="font-bold text-dark">
+                로그인
+              </Link>
             </p>
-          </Footer>
-        </div>
-      </>
-    );
-  
+          </Card>
+        </Content>
+        <Footer>
+          <Menu mode="horizontal">
+            <Menu.Item>회사</Menu.Item>
+            <Menu.Item>가치</Menu.Item>
+            <Menu.Item>팀소개</Menu.Item>
+            <Menu.Item>제품소개</Menu.Item>
+            <Menu.Item>블로그</Menu.Item>
+            <Menu.Item>가격정책</Menu.Item>
+          </Menu>
+          <Menu mode="horizontal" className="menu-nav-social">
+            <Menu.Item>
+              <Link to="#">{<DribbbleOutlined />}</Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="#">{<TwitterOutlined />}</Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="#">{<InstagramOutlined />}</Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="#">
+                <svg
+                  width="18"
+                  height="18"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
+                  <path d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"></path>
+                </svg>
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="#">{<GithubOutlined />}</Link>
+            </Menu.Item>
+          </Menu>
+          <p className="copyright">
+            {" "}
+            Copyright © 2021 And Then Some by <a href="#pablo">정인용</a>.{" "}
+          </p>
+        </Footer>
+      </div>
+    </>
+  );
 }
