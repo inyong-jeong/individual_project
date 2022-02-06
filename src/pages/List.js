@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { Input, Row, Col, Divider, Button, Modal } from "antd";
 import "antd/dist/antd.css";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { GetLists } from "../_actions/user_actions";
 import LogLists from "../components/LogLists";
 import WriteModal from "../components/WriteModal";
@@ -10,6 +10,7 @@ import WriteModal from "../components/WriteModal";
 const { Search } = Input;
 const List = () => {
   const dispatch = useDispatch();
+  const state = useSelector((state) => state.User);
   const [isModalVisible, setIsModalVisible] = useState(false);
   // modal set
   const showModal = () => {
@@ -32,7 +33,7 @@ const List = () => {
     dispatch(GetLists(data)).then((res) => {
       setLogList(res.payload.message);
     });
-  }, [data]);
+  }, [data, state.post_response, state.delete_response]);
 
   // console.log(LogList)
 

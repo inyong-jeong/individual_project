@@ -312,7 +312,7 @@ function Sidenav({ color }) {
           </Menu.Item>
         )}
         {!getCookieValue("jwt") && (
-          <Menu.Item key="8">
+          <Menu.Item key="10">
             <NavLink to="/sign-up">
               <span className="icon">{signup}</span>
               <span className="label">회원가입</span>

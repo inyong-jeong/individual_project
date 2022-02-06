@@ -3,8 +3,16 @@ import { Modal, Divider, Input } from "antd";
 import moment from "moment";
 import axios from "axios";
 import { LIST_SERVER } from "../components/config";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  PostLog,
+  PostLogLoading,
+  PostLogError,
+} from "../_actions/user_actions";
 
 export default function WriteModal({ title, visible, onCancel }) {
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.User);
   const [body, setBody] = useState({
     title: "",
     content: "",
@@ -19,14 +27,21 @@ export default function WriteModal({ title, visible, onCancel }) {
   };
 
   const handleOk = () => {
-    axios.post(`${LIST_SERVER}/regi_log`, body).then((res) => {
-      if (res.status === 200) {
+    dispatch(PostLogLoading());
+    dispatch(PostLog(body))
+      .then((res) => {
         console.log(res);
-        onCancel();
-      } else {
-        alert("fail");
-      }
-    });
+        if (res.payload.status === 200) {
+          console.log(res);
+          onCancel();
+          state.post_response = false;
+        } else {
+          alert("fail");
+        }
+      })
+      .catch((error) => {
+        dispatch(PostLogError());
+      });
   };
 
   return (
