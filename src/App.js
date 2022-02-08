@@ -16,7 +16,7 @@ import Billing from "./pages/Billing";
 import Rtl from "./pages/Rtl";
 import Profile from "./pages/Profile";
 import Log from "./pages/Log";
-import List from './pages/List';
+import List from "./pages/List";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Main from "./components/layout/Main";
@@ -46,8 +46,7 @@ function App() {
 
           <Route exact path="/introduce" component={Introduce} />
 
-
-          {/* <Redirect from="*" to="/dashboard" /> */}
+          <Redirect from="/" to="/introduce" />
         </Main>
       </Switch>
     </div>
