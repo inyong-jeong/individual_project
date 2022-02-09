@@ -50,39 +50,50 @@ const ListDetail = () => {
         dispatch(DeleteListError());
       });
   };
+
+  const handleOnEdit = () => {
+    console.log("revise");
+  };
   return (
     <>
-      <Row>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
         <Button
           onClick={() => {
             history.goBack();
           }}
         >
-          뒤로가기
+          뒤로 가기
         </Button>
         <Button onClick={handleOnDelete}>일지 삭제</Button>
-      </Row>
+      </div>
+
+      {/* <Button onClick={handleOnEdit}>일지 수정</Button> */}
+      <div style={{ marginTop: "6px" }}></div>
       <Row gutter={[24, 0]}>
-        <Col xs={24} sm={24} md={12} lg={12} xl={12} className="mb-24">
+        <Col xs={24} sm={24} md={24} lg={24} xl={24} className="mb-24">
           <Card
             bordered={false}
             className="criclebox h-full"
-            title={detail.title}
+            title={
+              <div style={{ textAlign: "center" }}>
+                <span>{detail.title}</span>
+              </div>
+            }
           >
             <div style={contentStyle}>
-              <Button style={{ marginBottom: "6px" }}>내용</Button>
+              {/* <Button style={{ marginBottom: "6px" }}>내용</Button> */}
               <p>{detail.content}</p>
             </div>
             <Divider />
             <div>
-              <Button style={{ marginBottom: "6px" }}> 주소</Button>
+              {/* <Button style={{ marginBottom: "6px" }}> 주소</Button> */}
               <p>{detail.addr}</p>
             </div>
           </Card>
         </Col>
-        <Col xs={24} sm={24} md={12} lg={12} xl={12} className="mb-24">
+        {/* <Col xs={24} sm={24} md={12} lg={12} xl={12} className="mb-24">
           <Card bordered={false} className="criclebox h-full"></Card>
-        </Col>
+        </Col> */}
       </Row>
       <Row>
         <Col span={24}>

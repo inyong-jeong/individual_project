@@ -46,7 +46,9 @@ function App() {
 
           <Route exact path="/introduce" component={Introduce} />
 
-          <Redirect from="/" to="/introduce" />
+          <Route exact path="/">
+            <Redirect to="/introduce" />
+          </Route>
         </Main>
       </Switch>
     </div>

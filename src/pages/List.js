@@ -6,9 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { GetLists } from "../_actions/user_actions";
 import LogLists from "../components/LogLists";
 import WriteModal from "../components/WriteModal";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const { Search } = Input;
 const List = () => {
+  //react-spinners 초기세팅
+  const [loading, setLoading] = useState(true);
+  const [color, setColor] = useState("#ffffff");
   const dispatch = useDispatch();
   const state = useSelector((state) => state.User);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -31,7 +35,12 @@ const List = () => {
   };
   useEffect(() => {
     dispatch(GetLists(data)).then((res) => {
+      // console.log(typeof res.payload.status);
       setLogList(res.payload.message);
+      // console.log(res.paylod.status);
+      if (res.payload.status === 200) {
+        setLoading(false);
+      }
     });
   }, [data, state.post_response, state.delete_response]);
 
@@ -54,31 +63,31 @@ const List = () => {
         visible={isModalVisible}
         onCancel={handleCancel}
       />
-      {/* <Modal
-        title="일지 작성"
-        visible={isModalVisible}
-        onOk={handleOk}
-        onCancel={handleCancel}
-      >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Modal> */}
-      <Divider />
-      <Row>
-        <Col span={24}>
-          {loglists.length > 0 ? (
-            <LogLists loglists={loglists} />
-          ) : (
-            // <div key={v.log_idx}>{ v.title}</div>
 
-            <>
-              <p>작성된 일지가 없습니다.</p>
-            </>
-          )}
-        </Col>
-      </Row>
-      {/* <div ref={observer}/> */}
+      <Divider />
+      {loading ? (
+        <div
+          style={{
+            position: "absolute",
+            left: "45%",
+            top: "50%",
+          }}
+        >
+          <ClipLoader color={"blue"} loading={loading} size={100} />
+        </div>
+      ) : (
+        <Row>
+          <Col span={24}>
+            {loglists.length > 0 ? (
+              <LogLists loglists={loglists} />
+            ) : (
+              <>
+                <p>작성된 일지가 없습니다.</p>
+              </>
+            )}
+          </Col>
+        </Row>
+      )}
     </>
   );
 };

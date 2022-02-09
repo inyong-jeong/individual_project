@@ -26,7 +26,7 @@ const LogLists = ({ loglists }) => {
         dataSource={loglists}
         footer={
           <div>
-            <b>다음</b> 페이지로...
+            <b>다음</b> 로...
           </div>
         }
         renderItem={(item) => (
