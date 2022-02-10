@@ -11,18 +11,22 @@ import {
   DeleteListLoading,
   DeleteListError,
 } from "../_actions/user_actions";
+import ClipLoader from "react-spinners/ClipLoader";
+
 const ListDetail = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.User);
   const history = useHistory();
   const id = useParams();
   const [detail, SetDetail] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios.post(`${LIST_SERVER}/get_list`, id).then((res) => {
       if (res.status === 200) {
         console.log(res.data.message[0]);
         SetDetail(res.data.message[0]);
+        setLoading(false);
       } else {
         console.log("err");
       }
@@ -56,50 +60,53 @@ const ListDetail = () => {
   };
   return (
     <>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <Button
-          onClick={() => {
-            history.goBack();
+      {loading ? (
+        <div
+          style={{
+            position: "absolute",
+            left: "45%",
+            top: "50%",
           }}
         >
-          뒤로 가기
-        </Button>
-        <Button onClick={handleOnDelete}>일지 삭제</Button>
-      </div>
+          <ClipLoader color={"blue"} loading={loading} size={100} />
+        </div>
+      ) : (
+        <div>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <Button
+              onClick={() => {
+                history.goBack();
+              }}
+            >
+              뒤로 가기
+            </Button>
+            <Button onClick={handleOnDelete}>일지 삭제</Button>
+          </div>
 
-      {/* <Button onClick={handleOnEdit}>일지 수정</Button> */}
-      <div style={{ marginTop: "6px" }}></div>
-      <Row gutter={[24, 0]}>
-        <Col xs={24} sm={24} md={24} lg={24} xl={24} className="mb-24">
-          <Card
-            bordered={false}
-            className="criclebox h-full"
-            title={
-              <div style={{ textAlign: "center" }}>
-                <span>{detail.title}</span>
-              </div>
-            }
-          >
-            <div style={contentStyle}>
-              {/* <Button style={{ marginBottom: "6px" }}>내용</Button> */}
-              <p>{detail.content}</p>
-            </div>
-            <Divider />
-            <div>
-              {/* <Button style={{ marginBottom: "6px" }}> 주소</Button> */}
-              <p>{detail.addr}</p>
-            </div>
-          </Card>
-        </Col>
-        {/* <Col xs={24} sm={24} md={12} lg={12} xl={12} className="mb-24">
-          <Card bordered={false} className="criclebox h-full"></Card>
-        </Col> */}
-      </Row>
-      <Row>
-        <Col span={24}>
-          <Comments />
-        </Col>
-      </Row>
+          <div style={{ marginTop: "6px" }}></div>
+          <Row gutter={[24, 0]}>
+            <Col xs={24} sm={24} md={24} lg={24} xl={24} className="mb-24">
+              <Card
+                bordered={false}
+                className="criclebox h-full"
+                title={
+                  <div style={{ textAlign: "center" }}>
+                    <span>{detail.title}</span>
+                  </div>
+                }
+              >
+                <div style={contentStyle}>
+                  <p>{detail.content}</p>
+                </div>
+                <Divider />
+                <div>
+                  <p>{detail.addr}</p>
+                </div>
+              </Card>
+            </Col>
+          </Row>
+        </div>
+      )}
     </>
   );
 };

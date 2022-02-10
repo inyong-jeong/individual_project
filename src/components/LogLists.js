@@ -41,7 +41,7 @@ const LogLists = ({ loglists }) => {
               <div>
                 <IconText
                   icon={StarOutlined}
-                  text="156"
+                  text="13"
                   key="list-vertical-star-o"
                 />
                 <br />
@@ -50,7 +50,7 @@ const LogLists = ({ loglists }) => {
               <div>
                 <IconText
                   icon={LikeOutlined}
-                  text="156"
+                  text="23"
                   key="list-vertical-like-o"
                 />
                 <br />

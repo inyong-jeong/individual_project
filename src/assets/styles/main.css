@@ -531,11 +531,11 @@ h4 {
   height: 20px;
 }
 
-.list_item{
+.list_item {
   cursor: pointer;
 }
 
-.list_item:hover{
+.list_item:hover {
   background-color: #ebdddd;
 }
 
@@ -1935,7 +1935,7 @@ body {
   font-weight: 600;
   font-size: 12px;
   height: 40px;
-  padding: 0 15px;
+  padding: 0px 5px;
   line-height: 40px;
 }
 .ant-btn {
