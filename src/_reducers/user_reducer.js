@@ -12,6 +12,9 @@ import {
   DELETE_LIST_ERROR,
   DELETE_LIST_LOADING,
   PUT_LIST,
+  GET_SEARCH_LOADING,
+  GET_SEARCH_ERROR,
+  GET_SEARCH,
 } from "../_actions/types";
 
 const initialState = {
@@ -22,6 +25,8 @@ const initialState = {
   put_list_rs: null,
   delete_list_rs: null,
   delete_response: false,
+  get_search_rs: null,
+  get_response: false,
 };
 
 export default function User(state = initialState, action) {
@@ -59,6 +64,13 @@ export default function User(state = initialState, action) {
       return { ...state, get_lists_rs: action.payload };
     case PUT_LIST:
       return { ...state, put_list_rs: action.payload };
+    //일지 검색하기
+    case GET_SEARCH:
+      return { ...state, get_search_rs: action.payload };
+    case GET_SEARCH_LOADING:
+      return { ...state, get_search_rs: action.payload };
+    case GET_SEARCH_ERROR:
+      return { ...state, get_search_rs: action.payload };
     default:
       return state;
   }

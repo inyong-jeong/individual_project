@@ -13,6 +13,7 @@ import {
   DELETE_LIST_LOADING,
   DELETE_LIST_ERROR,
   PUT_LIST,
+  GET_SEARCH,
 } from "../_actions/types";
 import { LIST_SERVER } from "../components/config";
 //일지 리스트 불러오기
@@ -23,6 +24,17 @@ export function GetLists(dataToSubmit) {
 
   return {
     type: GET_LISTS,
+    payload: request,
+  };
+}
+//일지 검색
+export function GetSearch(dataToSubmit) {
+  const request = axios
+    .post(`${LIST_SERVER}/get_search`, dataToSubmit)
+    .then((res) => res.data);
+
+  return {
+    type: GET_SEARCH,
     payload: request,
   };
 }

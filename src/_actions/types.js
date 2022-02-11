@@ -17,3 +17,8 @@ export const DELETE_LIST_ERROR = "delete_error";
 export const GET_LIST = "get_list";
 export const GET_LISTS = "get_lists";
 export const PUT_LIST = "put_list";
+
+//일지 검색
+export const GET_SEARCH_LOADING = "GET_SEARCH_LOADING";
+export const GET_SEARCH = "GET_SEARCH";
+export const GET_SEARCH_ERROR = "GET_SEARCH_ERROR";
