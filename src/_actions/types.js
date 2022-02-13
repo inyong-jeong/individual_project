@@ -22,3 +22,7 @@ export const PUT_LIST = "put_list";
 export const GET_SEARCH_LOADING = "GET_SEARCH_LOADING";
 export const GET_SEARCH = "GET_SEARCH";
 export const GET_SEARCH_ERROR = "GET_SEARCH_ERROR";
+
+//검색어
+
+export const SET_KEYWORD = "SET_KEYWORD";

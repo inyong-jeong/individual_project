@@ -1,8 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { List, Avatar, Space } from "antd";
 import { MessageOutlined, LikeOutlined, StarOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
+import Highlighter from "react-highlight-words";
+
 const LogLists = ({ loglists }) => {
+  const state = useSelector((state) => state.User);
   const history = useHistory();
   const IconText = ({ icon, text }) => (
     <Space>
@@ -11,7 +15,6 @@ const LogLists = ({ loglists }) => {
     </Space>
   );
 
-  const handleOnClick = () => {};
   return (
     <>
       <List
@@ -26,7 +29,7 @@ const LogLists = ({ loglists }) => {
         dataSource={loglists}
         footer={
           <div>
-            <b>다음</b> 로...
+            <b>다음 페이지</b> 로...
           </div>
         }
         renderItem={(item) => (
@@ -76,8 +79,26 @@ const LogLists = ({ loglists }) => {
           >
             <List.Item.Meta
               avatar={<Avatar src={item.avatar} />}
-              title={<a href={item.title}>{item.title}</a>}
-              description={<div>{item.content}</div>}
+              title={
+                <div>
+                  <Highlighter
+                    searchWords={[state.keyword]}
+                    autoEscape={true}
+                    textToHighlight={item.title}
+                    highlightStyle={{ color: "blue" }}
+                  />
+                </div>
+              }
+              description={
+                <div>
+                  <Highlighter
+                    searchWords={[state.keyword]}
+                    autoEscape={true}
+                    textToHighlight={item.content}
+                    highlightStyle={{ color: "blue" }}
+                  />
+                </div>
+              }
             />
           </List.Item>
         )}

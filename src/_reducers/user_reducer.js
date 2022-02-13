@@ -15,6 +15,7 @@ import {
   GET_SEARCH_LOADING,
   GET_SEARCH_ERROR,
   GET_SEARCH,
+  SET_KEYWORD,
 } from "../_actions/types";
 
 const initialState = {
@@ -27,6 +28,7 @@ const initialState = {
   delete_response: false,
   get_search_rs: null,
   get_response: false,
+  keyword: "",
 };
 
 export default function User(state = initialState, action) {
@@ -71,6 +73,8 @@ export default function User(state = initialState, action) {
       return { ...state, get_search_rs: action.payload };
     case GET_SEARCH_ERROR:
       return { ...state, get_search_rs: action.payload };
+    case SET_KEYWORD:
+      return { ...state, keyword: action.payload };
     default:
       return state;
   }

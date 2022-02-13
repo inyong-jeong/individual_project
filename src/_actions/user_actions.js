@@ -14,6 +14,7 @@ import {
   DELETE_LIST_ERROR,
   PUT_LIST,
   GET_SEARCH,
+  SET_KEYWORD,
 } from "../_actions/types";
 import { LIST_SERVER } from "../components/config";
 //일지 리스트 불러오기
@@ -82,5 +83,13 @@ export function DeleteListLoading() {
 export function DeleteListError() {
   return {
     type: DELETE_LIST_ERROR,
+  };
+}
+
+//일지 검색
+export function SetKeyword(keyword) {
+  return {
+    type: SET_KEYWORD,
+    payload: keyword,
   };
 }

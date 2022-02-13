@@ -3,7 +3,7 @@ import { Input, Row, Col, Divider, Button, Modal } from "antd";
 import "antd/dist/antd.css";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { GetLists, GetSearch } from "../_actions/user_actions";
+import { GetLists, GetSearch, SetKeyword } from "../_actions/user_actions";
 import LogLists from "../components/LogLists";
 import WriteModal from "../components/WriteModal";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -36,6 +36,7 @@ const List = () => {
     console.log(value);
 
     dispatch(GetSearch(data)).then((res) => {
+      setLoading(true);
       setLogList(res.payload.message);
       if (res.payload.status === 200) {
         setLoading(false);
@@ -57,6 +58,7 @@ const List = () => {
   const handleOnChange = (e) => {
     console.log(e.target.value);
     setData({ ...data, srch: e.target.value });
+    dispatch(SetKeyword(e.target.value));
   };
 
   return (
@@ -65,7 +67,7 @@ const List = () => {
         <Col span={24} className="mb-24">
           <Search
             onSearch={handleOnSearch}
-            placeholder="일지제목 혹은 내용을 검색해보세요^^"
+            placeholder="일지제목 혹은 내용을 검색해보세요"
             onChange={handleOnChange}
           />
         </Col>
