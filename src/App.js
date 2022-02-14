@@ -12,7 +12,10 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import Home from "./pages/Home";
 import Tables from "./pages/Tables";
-import Billing from "./pages/Billing";
+import Billing from "./pages/Billing/index";
+import Gbilling from "./pages/Billing/gpayment";
+import Rbilling from "./pages/Billing/payment";
+
 import Rtl from "./pages/Rtl";
 import Profile from "./pages/Profile";
 import Log from "./pages/Log";
@@ -37,6 +40,9 @@ function App() {
           <Route exact path="/dashboard" component={Home} />
           <Route exact path="/tables" component={Tables} />
           <Route exact path="/billing" component={Billing} />
+          <Route exact path="/billing/gpayment/:id" component={Gbilling} />
+          <Route exact path="/billing/payment/" component={Rbilling} />
+
           <Route exact path="/rtl" component={Rtl} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/log" component={Log} />
