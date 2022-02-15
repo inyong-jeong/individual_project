@@ -37,7 +37,13 @@ const timelineList = [
   {
     title: "자사 솔루션 리뉴얼",
     skill: "React, Redux, Node, Mysql",
-    time: "2021.07 ~ 현재",
+    time: "2021.07 ~ 2022.01.31",
+  },
+  {
+    title: "하나 캐피탈 중고차 플랫폼 리뉴얼",
+    skill: "html, css, javascript, Node.js, Vue.js, jquery",
+    time: "2022.02.07 ~ 현재",
+    color: "#00b2b2",
   },
 ];
 
@@ -178,8 +184,11 @@ export default function Introduce() {
               <Title level={5}>Career</Title>
               <Paragraph className="lastweek" style={{ marginBottom: 24 }}>
                 에스아이티(한화그룹 자회사 SI 업체){" "}
-                <span className="bnb2">60%</span>&nbsp;&nbsp; 더클랩(IT
+                <span className="bnb2">50%</span>&nbsp;&nbsp; 더클랩(IT
                 스타트업) <span style={{ color: "#1990ff" }}>40%</span>
+                <br />
+                <span>하나금융그룹(하나캐피탈)</span>&nbsp;
+                <span style={{ color: "#00b2b2" }}>10%</span>
               </Paragraph>
 
               <Timeline

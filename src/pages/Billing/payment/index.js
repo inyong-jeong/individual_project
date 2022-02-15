@@ -79,7 +79,7 @@ export default function Payment() {
     } else {
       const { IMP } = window;
 
-      IMP.init("imp08302711");
+      IMP.init("imp59840961");
       const data = {
         pg: "html5_inicis.INIBillTst", // PG사
         pay_method: "card", // 결제수단
@@ -114,30 +114,26 @@ export default function Payment() {
         if (success) {
           // const token = getOauthAccessToken();
 
-          axios({
-            url: "http://localhost:5526/billings",
-            method: "POST",
-            // headers: {
-            //   "Content-Type": "application/json",
-            //   Authorization: `Bearer ${token}`,
-            // },
-            data: {
-              name: "아임포트 정기결제",
-              customer_uid: customer_uid,
-              amount: paid_amount,
-              merchant_uid: merchant_uid,
-              imp_uid: imp_uid,
-              buyer_name: buyer_name,
-              buyer_tel: buyer_tel,
-              buyer_email: buyer_email,
-            },
-          })
-            .then(function (response) {
-              console.log(response);
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
+          // axios({
+          //   url: "http://localhost:5526/billings",
+          //   method: "POST",
+          //   data: {
+          //     name: "아임포트 정기결제",
+          //     customer_uid: customer_uid,
+          //     amount: paid_amount,
+          //     merchant_uid: merchant_uid,
+          //     imp_uid: imp_uid,
+          //     buyer_name: buyer_name,
+          //     buyer_tel: buyer_tel,
+          //     buyer_email: buyer_email,
+          //   },
+          // })
+          //   .then(function (response) {
+          //     console.log(response);
+          //   })
+          //   .catch(function (error) {
+          //     console.log(error);
+          //   });
           alert("빌링키 발급 성공");
         } else {
           alert(`빌링키 발급 실패: ${error_msg}`);

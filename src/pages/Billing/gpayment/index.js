@@ -118,7 +118,7 @@ export default function Gpayment() {
     } else {
       const { IMP } = window;
 
-      IMP.init("imp08302711");
+      IMP.init("imp59840961");
       const data = {
         pg: "html5_inicis", // PG사
         pay_method: "card", // 결제수단
@@ -145,29 +145,30 @@ export default function Gpayment() {
         } = response;
 
         if (success) {
-          axios({
-            url: "http://localhost:5526/general_billings",
-            method: "POST",
-            // headers: {
-            //   "Content-Type": "application/json",
-            //   Authorization: `Bearer ${token}`,
-            // },
-            data: {
-              amount: paid_amount,
-              imp_uid: imp_uid,
-              merchant_uid: merchant_uid,
-              name: name,
-            },
-          })
-            .then(function (response) {
-              console.log(response);
-              if (response.status === 200) {
-                alert("결제가 성공하였습니다.");
-              }
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
+          // axios({
+          //   url: "http://localhost:5526/general_billings",
+          //   method: "POST",
+          //   // headers: {
+          //   //   "Content-Type": "application/json",
+          //   //   Authorization: `Bearer ${token}`,
+          //   // },
+          //   data: {
+          //     amount: paid_amount,
+          //     imp_uid: imp_uid,
+          //     merchant_uid: merchant_uid,
+          //     name: name,
+          //   },
+          // })
+          //   .then(function (response) {
+          //     console.log(response);
+          //     if (response.status === 200) {
+          //       alert("결제가 성공하였습니다.");
+          //     }
+          //   })
+          //   .catch(function (error) {
+          //     console.log(error);
+          //   });
+          alert("결제가 성공하였습니다.");
         } else {
           alert(`결제에 실패하였습니다. 에러내용 : ${error_msg}`);
         }
@@ -296,7 +297,7 @@ export default function Gpayment() {
                   >
                     <span style={{ fontSize: "12px" }}>
                       {" "}
-                      정기결제에 동의합니다.{" "}
+                      일반결제에 동의합니다.{" "}
                     </span>
                   </Checkbox>
                 </div>
