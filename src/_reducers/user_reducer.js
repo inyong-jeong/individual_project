@@ -16,6 +16,21 @@ import {
   GET_SEARCH_ERROR,
   GET_SEARCH,
   SET_KEYWORD,
+  GET_CALENDAR_LISTS,
+  GET_CALENDAR_LISTS_LOADING,
+  GET_CALENDAR_LISTS_ERROR,
+  GET_CALENDAR_LIST,
+  GET_CALENDAR_LIST_LOADING,
+  GET_CALENDAR_LIST_ERROR,
+  POST_CALENDAR,
+  POST_CALENDAR_LOADING,
+  POST_CALENDAR_ERROR,
+  PUT_CALENDAR,
+  PUT_CALENDAR_LOADING,
+  PUT_CALENDAR_ERROR,
+  DELETE_CALENDAR,
+  DELETE_CALENDAR_LOADING,
+  DELETE_CALENDAR_ERROR,
 } from "../_actions/types";
 
 const initialState = {
@@ -29,6 +44,16 @@ const initialState = {
   get_search_rs: null,
   get_response: false,
   keyword: "",
+  get_calendars_rs: null,
+  get_calendars_response: false,
+  get_calendar_rs: null,
+  get_calendar_response: false,
+  post_calendar_rs: null,
+  post_calendar_response: false,
+  put_calendar_rs: null,
+  put_calendar_response: false,
+  delete_calendar_rs: null,
+  delete_calendar_response: false,
 };
 
 export default function User(state = initialState, action) {
@@ -75,6 +100,101 @@ export default function User(state = initialState, action) {
       return { ...state, get_search_rs: action.payload };
     case SET_KEYWORD:
       return { ...state, keyword: action.payload };
+    //일정리스트 가져오기
+    case GET_CALENDAR_LISTS:
+      return {
+        ...state,
+        get_calendars_rs: action.payload,
+        get_calendars_response: false,
+      };
+    case GET_CALENDAR_LISTS_LOADING:
+      return {
+        ...state,
+        get_calendars_rs: action.payload,
+        get_calendars_response: true,
+      };
+    case GET_CALENDAR_LISTS_ERROR:
+      return {
+        ...state,
+        get_calendars_rs: action.payload,
+        get_calendars_response: false,
+      };
+    //일정 상세조회
+    case GET_CALENDAR_LIST:
+      return {
+        ...state,
+        get_calendar_rs: action.payload,
+        get_calendar_response: false,
+      };
+    case GET_CALENDAR_LIST_LOADING:
+      return {
+        ...state,
+        get_calendar_rs: action.payload,
+        get_calendar_response: true,
+      };
+    case GET_CALENDAR_LIST_ERROR:
+      return {
+        ...state,
+        get_calendar_rs: action.payload,
+        get_calendar_response: false,
+      };
+    //일정등록
+    case POST_CALENDAR:
+      return {
+        ...state,
+        post_calendar_rs: action.payload,
+        post_calendar_response: false,
+      };
+    case POST_CALENDAR_LOADING:
+      return {
+        ...state,
+        post_calendar_rs: action.payload,
+        post_calendar_response: true,
+      };
+    case POST_CALENDAR_ERROR:
+      return {
+        ...state,
+        post_calendar_rs: action.payload,
+        post_calendar_response: false,
+      };
+    //일정수정
+    case PUT_CALENDAR:
+      return {
+        ...state,
+        put_calendar_rs: action.payload,
+        put_calendar_response: false,
+      };
+    case PUT_CALENDAR_LOADING:
+      return {
+        ...state,
+        put_calendar_rs: action.payload,
+        put_calendar_response: true,
+      };
+    case PUT_CALENDAR_ERROR:
+      return {
+        ...state,
+        put_calendar_rs: action.payload,
+        put_calendar_response: false,
+      };
+    //일정삭제
+    case DELETE_CALENDAR:
+      return {
+        ...state,
+        delete_calendar_rs: action.payload,
+        delete_calendar_response: false,
+      };
+    case DELETE_CALENDAR_LOADING:
+      return {
+        ...state,
+        delete_calendar_rs: action.payload,
+        delete_calendar_response: true,
+      };
+    case DELETE_CALENDAR_ERROR:
+      return {
+        ...state,
+        delete_calendar_rs: action.payload,
+        delete_calendar_response: false,
+      };
     default:
       return state;
   }

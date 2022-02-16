@@ -31,6 +31,8 @@ const List = () => {
     srch: "",
   });
 
+  console.log(loglists.length);
+
   const handleOnSearch = (value) => {
     console.log(1);
     console.log(value);
@@ -76,6 +78,12 @@ const List = () => {
         <Col span={24} style={{ textAlign: "right" }}>
           <Button onClick={showModal}>글쓰기</Button>
         </Col>
+        <Col span={24} style={{ color: "blue" }}>
+          {!loading && (
+            <span onClick={showModal}>총 일지 {loglists.length} 개</span>
+          )}
+        </Col>
+        <div></div>
       </Row>
       <WriteModal
         title="일지 작성"

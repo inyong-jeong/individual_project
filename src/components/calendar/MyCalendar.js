@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
@@ -13,9 +13,6 @@ import CalendarEditModal from "./CalendarEditModal";
 // import { CALENDAR_DATE, CALENDAR_PLUS, CALENDAR_EVENT } from 'constants/actionTypes';
 
 export default function MyCalendar(props) {
-  const isMobile = useMediaQuery({
-    query: "(max-width:768px)",
-  });
   const dispatch = useDispatch();
   const state = useSelector((state) => state.Calendar);
 
@@ -132,49 +129,27 @@ export default function MyCalendar(props) {
   return (
     <>
       <div className="content_body">
-        {isMobile ? (
-          <Calendar
-            onNavigate={handleOnNavigate}
-            longPressThreshold={10}
-            localizer={localizer}
-            events={mtEventsList}
-            style={{ height: "80vh" }}
-            views={["month"]}
-            onSelectEvent={handleOnSelect}
-            selectable={true}
-            onSelectSlot={onSelectSlot}
-            culture="ko"
-            messages={{
-              today: "오늘",
-              previous: "<",
-              next: ">",
-              month: "월",
-              week: "주",
-              day: "일",
-            }}
-          />
-        ) : (
-          <Calendar
-            onNavigate={handleOnNavigate}
-            longPressThreshold={0.1}
-            localizer={localizer}
-            events={mtEventsList}
-            style={{ height: "80vh" }}
-            views={["month", "week", "day"]}
-            onSelectEvent={handleOnSelect}
-            selectable={true}
-            onSelectSlot={onSelectSlot}
-            culture="ko"
-            messages={{
-              today: "오늘",
-              previous: "<",
-              next: ">",
-              month: "월",
-              week: "주",
-              day: "일",
-            }}
-          />
-        )}
+        <Calendar
+          onNavigate={handleOnNavigate}
+          longPressThreshold={0.1}
+          localizer={localizer}
+          events={mtEventsList}
+          style={{ height: "80vh" }}
+          views={["month", "week", "day"]}
+          onSelectEvent={handleOnSelect}
+          selectable={true}
+          onSelectSlot={onSelectSlot}
+          culture="ko"
+          messages={{
+            today: "오늘",
+            previous: "<",
+            next: ">",
+            month: "월",
+            week: "주",
+            day: "일",
+          }}
+        />
+
         <CalendarModal
           Cdata={Cdata}
           setIsModalVisible={setIsModalVisible}
