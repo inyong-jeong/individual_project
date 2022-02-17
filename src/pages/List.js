@@ -63,6 +63,8 @@ const List = () => {
     dispatch(SetKeyword(e.target.value));
   };
 
+  console.log("test");
+
   return (
     <>
       <Row>
