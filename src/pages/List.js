@@ -64,6 +64,7 @@ const List = () => {
   };
 
   console.log("test");
+  console.log("test");
 
   return (
     <>
