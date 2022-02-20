@@ -20,30 +20,29 @@ import { ReactComponent as LocationIcon } from "../../assets/icons/log/location.
 import { ReactComponent as CalIcon } from "../../assets/icons/log/cal.svg";
 
 import { ReactComponent as Log } from "../../assets/icons/main/log.svg";
-
+import { PostCalendar } from "../../_actions/user_actions";
 export default function CalendarModal({
   Cdata,
   isModalVisible,
   setIsModalVisible,
 }) {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.Calendar);
-  const state2 = useSelector((state) => state.SalesLog);
+  const state = useSelector((state) => state.User);
 
-  const AlarmOption = [
-    { label: "정시", value: 0 },
-    { label: "5분전", value: 5 },
-    { label: "10분전", value: 10 },
-    { label: "30분전", value: 30 },
-    { label: "2시간전", value: 120 },
-    { label: "4시간전", valuse: 240 },
-  ];
+  // const AlarmOption = [
+  //   { label: "정시", value: 0 },
+  //   { label: "5분전", value: 5 },
+  //   { label: "10분전", value: 10 },
+  //   { label: "30분전", value: 30 },
+  //   { label: "2시간전", value: 120 },
+  //   { label: "4시간전", valuse: 240 },
+  // ];
 
-  const [CheckAlarm, setCheckAlarm] = useState(false);
+  // const [CheckAlarm, setCheckAlarm] = useState(false);
   const [CheckAllDay, setCheckAllDay] = useState(false);
 
-  const [filteredOptions, setFilteredOptions] = useState([]);
-  const [selectedItems, setSelectedItems] = useState([]);
+  // const [filteredOptions, setFilteredOptions] = useState([]);
+  // const [selectedItems, setSelectedItems] = useState([]);
 
   //날짜 스테이트
   const [sdateString, setsDateString] = useState(moment());
@@ -79,8 +78,8 @@ export default function CalendarModal({
 
   //모달 데이터
   const [body, setBody] = useState({
-    dept_idx: 0,
-    acc_idx: 0,
+    // dept_idx: 0,
+    // acc_idx: 0,
     plan: "",
     content: "",
     sdt: moment().format("YYYY-MM-DD"),
@@ -88,17 +87,22 @@ export default function CalendarModal({
     stime: moment().format("HH:mm"),
     etime: moment().format("HH:mm"),
     location: "",
-    pub_yn: "N",
-    pub_mans: "",
-    alarm_yn: "Y",
-    alarm_min: 10,
+    // pub_yn: "N",
+    // pub_mans: "",
+    // alarm_yn: "Y",
+    // alarm_min: 10,
   });
+  console.log(body);
 
   const handleOk = () => {
     if (body.plan === "") {
       return alert("일정은 필수값입니다");
     }
-    // dispatch(postCalendar.call(body));
+    dispatch(PostCalendar(body)).then((res) => {
+      if (res.payload.status === 200) {
+        //로딩 해제
+      }
+    });
   };
 
   const handleCancel = () => {
@@ -120,16 +124,16 @@ export default function CalendarModal({
     setCheckAllDay(e);
   };
 
-  const AlarmCheck = (e) => {
-    if (e === true) {
-      setBody({ ...body, alarm_yn: "Y" });
-    } else if (e === false) {
-      setBody({ ...body, alarm_yn: "N" });
-    }
-    setCheckAlarm(!e);
-  };
+  // const AlarmCheck = (e) => {
+  //   if (e === true) {
+  //     setBody({ ...body, alarm_yn: "Y" });
+  //   } else if (e === false) {
+  //     setBody({ ...body, alarm_yn: "N" });
+  //   }
+  //   setCheckAlarm(!e);
+  // };
 
-  const selectStyle = { width: "100%" };
+  // const selectStyle = { width: "100%" };
 
   //일정, 설명, 주소 변환
   const handleOnChange = (e) => {
@@ -140,31 +144,31 @@ export default function CalendarModal({
   };
 
   //멤버 이름 넣으면 해당 멤버의 login_idx 반환 하는 함수
-  function filterList(label) {
-    let list = [];
-    for (let i = 0; i < state2.userlist.length; i++) {
-      for (let j = 0; j < label.length; j++) {
-        if (label[j] === state2.userlist[i].user_name) {
-          list = list.concat(state2.userlist[i].login_idx);
-        } else if (label === []) {
-          list = [];
-        }
-      }
-    }
-    return list;
-  }
+  // function filterList(label) {
+  //   let list = [];
+  //   for (let i = 0; i < state2.userlist.length; i++) {
+  //     for (let j = 0; j < label.length; j++) {
+  //       if (label[j] === state2.userlist[i].user_name) {
+  //         list = list.concat(state2.userlist[i].login_idx);
+  //       } else if (label === []) {
+  //         list = [];
+  //       }
+  //     }
+  //   }
+  //   return list;
+  // }
 
-  const onOrganizationUserSelectChange = (label) => {
-    console.log(label);
-    if (label.length > 0) {
-      setBody({ ...body, pub_yn: "Y" });
-    } else if (label.length === 0) {
-      setBody({ ...body, pub_yn: "N" });
-    }
-    setSelectedItems(label);
-    let memberlist = filterList(label);
-    setBody({ ...body, pub_mans: memberlist });
-  };
+  // const onOrganizationUserSelectChange = (label) => {
+  //   console.log(label);
+  //   if (label.length > 0) {
+  //     setBody({ ...body, pub_yn: "Y" });
+  //   } else if (label.length === 0) {
+  //     setBody({ ...body, pub_yn: "N" });
+  //   }
+  //   setSelectedItems(label);
+  //   let memberlist = filterList(label);
+  //   setBody({ ...body, pub_mans: memberlist });
+  // };
 
   //날짜 및 시간 변화
 
@@ -397,7 +401,7 @@ export default function CalendarModal({
             placeholder="위치"
           />
         </div>
-        <Divider style={{ marginBottom: 10, marginTop: 10 }} />
+        {/* <Divider style={{ marginBottom: 10, marginTop: 10 }} />
         <div style={{ display: "flex", direction: "column" }}>
           <Noti
             stroke="#aaa"
@@ -418,7 +422,7 @@ export default function CalendarModal({
               checked={body.alarm_yn === "Y" ? true : false}
             />
           </div>
-        </div>
+        </div> */}
         {/* <Divider style={{ marginBottom: 10, marginTop: 10 }} />
         <div style={{ display: 'flex' }}>
           <Share stroke='#aaa' style={{ alignSelf: 'center', marginRight: '4px' }} />
@@ -427,7 +431,7 @@ export default function CalendarModal({
             <Radio onClick={onPrivate} value={'N'}>비공개</Radio>
           </Radio.Group>
         </div> */}
-
+        {/* 
         <Divider style={{ marginBottom: 10, marginTop: 10 }} />
         <div style={{ display: "flex" }}>
           <PersonIcon
@@ -449,7 +453,7 @@ export default function CalendarModal({
                 </Select.Option>
               ))}
           </Select>
-        </div>
+        </div> */}
       </Modal>
     </>
   );
