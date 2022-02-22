@@ -35,6 +35,7 @@ export default function MyCalendar(props) {
   //   setIsModalVisible(true);
   // };
 
+  console.log(22);
   const localizer = momentLocalizer(moment);
 
   const onSelectSlot = (event) => {
