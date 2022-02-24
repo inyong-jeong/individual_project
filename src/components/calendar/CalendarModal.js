@@ -86,7 +86,7 @@ export default function CalendarModal({
     edt: moment().format("YYYY-MM-DD"),
     stime: moment().format("HH:mm"),
     etime: moment().format("HH:mm"),
-    location: "",
+    addr: "",
     // pub_yn: "N",
     // pub_mans: "",
     // alarm_yn: "Y",
@@ -100,6 +100,7 @@ export default function CalendarModal({
     }
     dispatch(PostCalendar(body)).then((res) => {
       if (res.payload.status === 200) {
+        console.log("test");
         //로딩 해제
       }
     });
@@ -395,8 +396,8 @@ export default function CalendarModal({
             style={{ marginRight: "8px", alignSelf: "center" }}
           />
           <Input
-            name="location"
-            value={body.location}
+            name="addr"
+            value={body.addr}
             onChange={handleOnChange}
             placeholder="위치"
           />

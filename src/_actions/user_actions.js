@@ -21,7 +21,7 @@ import {
   PUT_CALENDAR,
   DELETE_CALENDAR,
 } from "../_actions/types";
-import { LIST_SERVER } from "../components/config";
+import { LIST_SERVER, CALENDAR_SERVER } from "../components/config";
 //일지 리스트 불러오기
 export function GetLists(dataToSubmit) {
   const request = axios
@@ -103,7 +103,7 @@ export function SetKeyword(keyword) {
 
 export function GetCalendars(dataToSubmit) {
   const request = axios
-    .post(`${LIST_SERVER}/get_calendars`, dataToSubmit)
+    .post(`${CALENDAR_SERVER}/get_calendars`, dataToSubmit)
     .then((res) => res.data);
 
   return {
@@ -116,7 +116,7 @@ export function GetCalendars(dataToSubmit) {
 
 export function GetCalendar(dataToSubmit) {
   const request = axios
-    .post(`${LIST_SERVER}/get_calendar`, dataToSubmit)
+    .post(`${CALENDAR_SERVER}/get_calendar`, dataToSubmit)
     .then((res) => res.data);
 
   return {
@@ -128,7 +128,7 @@ export function GetCalendar(dataToSubmit) {
 
 export function PostCalendar(dataToSubmit) {
   const request = axios
-    .post(`${LIST_SERVER}/post_calendar`, dataToSubmit)
+    .post(`${CALENDAR_SERVER}/post_calendar`, dataToSubmit)
     .then((res) => res.data);
 
   return {
@@ -140,7 +140,7 @@ export function PostCalendar(dataToSubmit) {
 
 export function PutCalendar(dataToSubmit) {
   const request = axios
-    .post(`${LIST_SERVER}/put_calendar`, dataToSubmit)
+    .post(`${CALENDAR_SERVER}/put_calendar`, dataToSubmit)
     .then((res) => res.data);
 
   return {
@@ -151,7 +151,7 @@ export function PutCalendar(dataToSubmit) {
 //일정 삭제
 export function DeleteCalendar(dataToSubmit) {
   const request = axios
-    .post(`${LIST_SERVER}/delete_calendar`, dataToSubmit)
+    .post(`${CALENDAR_SERVER}/delete_calendar`, dataToSubmit)
     .then((res) => res.data);
 
   return {

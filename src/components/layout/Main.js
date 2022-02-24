@@ -74,7 +74,7 @@ function Main({ children }) {
             }`}
             style={{ background: sidenavType }}
           >
-            <Sidenav color={sidenavColor} />
+            <Sidenav color={sidenavColor} onPress={openDrawer} />
           </Sider>
         </Layout>
       </Drawer>
@@ -92,7 +92,7 @@ function Main({ children }) {
         }`}
         style={{ background: sidenavType }}
       >
-        <Sidenav color={sidenavColor} />
+        <Sidenav color={sidenavColor} onPress={openDrawer} />
       </Sider>
       <Layout>
         {fixed ? (

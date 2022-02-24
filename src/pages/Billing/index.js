@@ -21,6 +21,13 @@ export default function Membership() {
     };
   }, []);
 
+  // useEffect(() => {
+  //   return () => {
+  //     window.alert(
+  //       "테스트 결제입니다. 실제 결제가 이루어지며 익일 12시경 환불됩니다."
+  //     );
+  //   };
+  // }, []);
   const onClickPayment = () => {
     const { IMP } = window;
     IMP.init("imp08302711");
@@ -141,6 +148,9 @@ export default function Membership() {
                       color: "white",
                     }}
                     onClick={() => {
+                      window.alert(
+                        ' "테스트 결제입니다. 실제 결제가 이루어지며 익일 12시경 환불됩니다."'
+                      );
                       history.push("/billing/payment");
                     }}
                   >
@@ -171,6 +181,9 @@ export default function Membership() {
                       color: "white",
                     }}
                     onClick={() => {
+                      window.alert(
+                        ' "테스트 결제입니다. 실제 결제가 이루어지며 익일 12시경 환불됩니다."'
+                      );
                       history.push({
                         pathname: `billing/gpayment/${12}`,
                         state: "12개월 결제",
@@ -204,6 +217,9 @@ export default function Membership() {
                       color: "white",
                     }}
                     onClick={() => {
+                      window.alert(
+                        ' "테스트 결제입니다. 실제 결제가 이루어지며 익일 12시경 환불됩니다."'
+                      );
                       history.push({
                         pathname: `billing/gpayment/${6}`,
                         state: "6개월 결제",
@@ -237,6 +253,9 @@ export default function Membership() {
                       color: "white",
                     }}
                     onClick={() => {
+                      window.alert(
+                        ' "테스트 결제입니다. 실제 결제가 이루어지며 익일 12시경 환불됩니다."'
+                      );
                       history.push({
                         pathname: `billing/gpayment/${3}`,
                         state: "3개월 결제",
@@ -270,6 +289,9 @@ export default function Membership() {
                       color: "white",
                     }}
                     onClick={() => {
+                      window.alert(
+                        ' "테스트 결제입니다. 실제 결제가 이루어지며 익일 12시경 환불됩니다."'
+                      );
                       history.push({
                         pathname: `billing/gpayment/${1}`,
                         state: "1개월 결제",

@@ -9,10 +9,10 @@
   =========================================================
   * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
-import { getCookieValue, deleteCookie }   from '../../cmm/cmm.js';
+import { getCookieValue, deleteCookie } from "../../cmm/cmm.js";
 
 import { useState, useEffect } from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import {
   Row,
   Col,
@@ -62,7 +62,7 @@ const ButtonContainer = styled.div`
 
 const bell = [
   <svg
-    width="20"
+    width="200"
     height="20"
     viewBox="0 0 20 20"
     fill="none"
@@ -270,9 +270,16 @@ function Header({
   const hideDrawer = () => setVisible(false);
 
   const handleOnClick = () => {
-    deleteCookie('jwt');
-    history.push('/sign-in')
-  }
+    deleteCookie("jwt");
+    history.push("/sign-in");
+  };
+
+  console.log(window.location.href);
+
+  useEffect(() => {
+    // setVisible((visible) => !visible);
+    // onPress();
+  }, [window.location.href]);
   return (
     <>
       <div className="setting-drwer" onClick={showDrawer}>
@@ -426,18 +433,17 @@ function Header({
               </div>
             </div>
           </Drawer>
-          {!getCookieValue('jwt') ?<Link to="/sign-in" className="btn-sign-in">
-            {profile}
-            <span>로그인</span>
-          </Link>
-            :
-            <Link to="/sign-in" className="btn-sign-in"
-              onClick={handleOnClick}
-            >
-            {profile}
-            <span>로그아웃</span>
+          {!getCookieValue("jwt") ? (
+            <Link to="/sign-in" className="btn-sign-in">
+              {profile}
+              <span>로그인</span>
             </Link>
-        }
+          ) : (
+            <Link to="/sign-in" className="btn-sign-in" onClick={handleOnClick}>
+              {profile}
+              <span>로그아웃</span>
+            </Link>
+          )}
           <Input
             className="header-search"
             placeholder="검색하세요"

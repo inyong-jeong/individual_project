@@ -15,8 +15,12 @@ import { getCookieValue } from "../../cmm/cmm.js";
 import { Menu, Button } from "antd";
 import { NavLink, useLocation } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
+import { useMediaQuery } from "react-responsive";
+function Sidenav({ color, onPress }) {
+  const isMobile = useMediaQuery({
+    query: "(max-width:768px)",
+  });
 
-function Sidenav({ color }) {
   const { pathname } = useLocation();
   const page = pathname.replace("/", "");
 
@@ -168,7 +172,13 @@ function Sidenav({ color }) {
         <span>And Then Some</span>
       </div>
       <hr />
-      <Menu theme="light" mode="inline">
+      <Menu
+        theme="light"
+        mode="inline"
+        onClick={() => {
+          if (isMobile) onPress();
+        }}
+      >
         <Menu.Item key="0">
           <NavLink to="/introduce">
             <span
