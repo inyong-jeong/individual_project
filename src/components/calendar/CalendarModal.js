@@ -100,6 +100,7 @@ export default function CalendarModal({
     }
     dispatch(PostCalendar(body)).then((res) => {
       if (res.payload.status === 200) {
+        state.post_calendar_response = false;
         console.log("test");
         //로딩 해제
       }

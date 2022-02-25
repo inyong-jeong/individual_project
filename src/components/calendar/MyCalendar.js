@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
@@ -105,9 +105,9 @@ export default function MyCalendar(props) {
   }
 
   // 캘린더 리스트 호출
-  // useEffect(() => {
-  //   dispatch(getCalendarLists.call(Cdata))
-  // }, [Cdata])
+  useEffect(() => {
+    // dispatch(getCalendarLists.call(Cdata))
+  }, [Cdata]);
 
   // 캘린더 디테일 확인 후 닫을 때 리스트 다시 호출
   // useEffect(() => {
@@ -116,7 +116,7 @@ export default function MyCalendar(props) {
   //   }
   // }, [isModalDVisible])
 
-  // console.log(isModalVisible);
+  console.log(isModalVisible);
 
   // 캘린더 리스트 받아오면 리스트 데이터 set
   // useEffect(() => {
