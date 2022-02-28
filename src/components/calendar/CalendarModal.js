@@ -92,7 +92,6 @@ export default function CalendarModal({
     // alarm_yn: "Y",
     // alarm_min: 10,
   });
-  console.log(body);
 
   const handleOk = () => {
     if (body.plan === "") {
