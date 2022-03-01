@@ -20,7 +20,7 @@ import { ReactComponent as LocationIcon } from "../../assets/icons/log/location.
 import { ReactComponent as CalIcon } from "../../assets/icons/log/cal.svg";
 
 import { ReactComponent as Log } from "../../assets/icons/main/log.svg";
-import { PostCalendar } from "../../_actions/user_actions";
+import { PostCalendar, GetCalendars } from "../../_actions/user_actions";
 export default function CalendarModal({
   Cdata,
   isModalVisible,
@@ -98,10 +98,10 @@ export default function CalendarModal({
       return alert("일정은 필수값입니다");
     }
     dispatch(PostCalendar(body)).then((res) => {
+      console.log(res);
       if (res.payload.status === 200) {
+        setIsModalVisible(false);
         state.post_calendar_response = false;
-        console.log("test");
-        //로딩 해제
       }
     });
   };

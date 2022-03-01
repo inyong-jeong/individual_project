@@ -6,7 +6,7 @@ import "moment/locale/ko";
 import { useMediaQuery } from "react-responsive";
 
 import { useDispatch, useSelector } from "react-redux";
-// import { getCalendarLists, getCalendarList } from 'redux/calendar/actions'
+import { GetCalendars } from "../../_actions/user_actions";
 import CalendarModal from "./CalendarModal";
 import CalendarDetailModal from "./CalendarDetailModal";
 import CalendarEditModal from "./CalendarEditModal";
@@ -14,7 +14,7 @@ import CalendarEditModal from "./CalendarEditModal";
 
 export default function MyCalendar(props) {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.Calendar);
+  const state = useSelector((state) => state.User);
 
   const [CalendarDate, setCalendarDate] = useState(moment);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -84,7 +84,7 @@ export default function MyCalendar(props) {
       result[i] = {
         title: `${lists[i].plan}`,
         allDay: false,
-        p_idx: lists[i].p_idx,
+        p_idx: lists[i].c_idx,
         start: new Date(
           Number(moment(lists[i].sdt).format("YYYY")),
           Number(moment(lists[i].sdt).format("MM")) - 1,
@@ -106,7 +106,7 @@ export default function MyCalendar(props) {
 
   // 캘린더 리스트 호출
   useEffect(() => {
-    // dispatch(getCalendarLists.call(Cdata))
+    dispatch(GetCalendars.call(Cdata));
   }, [Cdata]);
 
   // 캘린더 디테일 확인 후 닫을 때 리스트 다시 호출
@@ -119,13 +119,13 @@ export default function MyCalendar(props) {
   console.log(isModalVisible);
 
   // 캘린더 리스트 받아오면 리스트 데이터 set
-  // useEffect(() => {
-  //   if (state.getListsState) {
-  //     console.log(state.getListsRes);
-  //     setmtEventsList(FilterList(state.getListsRes));
-  //     state.getListsState = false;
-  //   }
-  // }, [state.getListsState]);
+  useEffect(() => {
+    if (state.get_calendars_response) {
+      // console.log(state.getListsRes);
+      setmtEventsList(FilterList(state.get_calendars_rs));
+      state.get_calendars_response = false;
+    }
+  }, [state.get_calendars_response]);
 
   return (
     <>
