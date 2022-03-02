@@ -105,18 +105,16 @@ export default function User(state = initialState, action) {
       return {
         ...state,
         get_calendars_rs: action.payload,
-        get_calendars_response: false,
+        get_calendars_response: true,
       };
     case GET_CALENDAR_LISTS_LOADING:
       return {
         ...state,
-        get_calendars_rs: action.payload,
-        get_calendars_response: true,
+        get_calendars_response: false,
       };
     case GET_CALENDAR_LISTS_ERROR:
       return {
         ...state,
-        get_calendars_rs: action.payload,
         get_calendars_response: false,
       };
     //일정 상세조회
@@ -143,18 +141,16 @@ export default function User(state = initialState, action) {
       return {
         ...state,
         post_calendar_rs: action.payload,
-        post_calendar_response: false,
+        post_calendar_response: true,
       };
     case POST_CALENDAR_LOADING:
       return {
         ...state,
-        post_calendar_rs: action.payload,
-        post_calendar_response: true,
+        post_calendar_response: false,
       };
     case POST_CALENDAR_ERROR:
       return {
         ...state,
-        post_calendar_rs: action.payload,
         post_calendar_response: false,
       };
     //일정수정
