@@ -26,6 +26,7 @@ export default function CalendarModal({
   isModalVisible,
   setIsModalVisible,
 }) {
+  console.log(22);
   const dispatch = useDispatch();
   const state = useSelector((state) => state.User);
 
