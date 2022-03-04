@@ -104,7 +104,7 @@ export default function User(state = initialState, action) {
     case GET_CALENDAR_LISTS:
       return {
         ...state,
-        get_calendars_rs: action.payload,
+        get_calendars_rs: action.payload.message,
         get_calendars_response: true,
       };
     case GET_CALENDAR_LISTS_LOADING:

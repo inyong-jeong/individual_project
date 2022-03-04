@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
@@ -79,6 +80,7 @@ export default function MyCalendar(props) {
 
   //캘린더 list 가공 함수
   function FilterList(lists) {
+    console.log(lists);
     let result = [];
     for (let i = 0; i < lists.length; i++) {
       result[i] = {
@@ -121,6 +123,7 @@ export default function MyCalendar(props) {
   // 캘린더 리스트 받아오면 리스트 데이터 set
   useEffect(() => {
     if (state.get_calendars_response) {
+      console.log(state.get_calendars_rs);
       // console.log(state.getListsRes);
       setmtEventsList(FilterList(state.get_calendars_rs));
       state.get_calendars_response = false;
