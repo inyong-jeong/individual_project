@@ -77,7 +77,7 @@ export default function MyCalendar(props) {
       cmonth: moment(e).format("MM"),
     });
   };
-  console.log(22);
+  // console.log(22);
   //캘린더 list 가공 함수
   function FilterList(lists) {
     console.log(lists);
