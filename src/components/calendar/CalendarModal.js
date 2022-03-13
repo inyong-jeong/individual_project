@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import { getCalendarLists, postCalendar } from "redux/calendar/actions";
@@ -25,8 +26,10 @@ export default function CalendarModal({
   Cdata,
   isModalVisible,
   setIsModalVisible,
+  CalendarDate,
 }) {
   console.log(22);
+  console.log(CalendarDate);
   const dispatch = useDispatch();
   const state = useSelector((state) => state.User);
 
@@ -51,15 +54,15 @@ export default function CalendarModal({
   const [start, setStart] = useState(moment());
   const [end, setEnd] = useState(moment());
 
-  // useEffect(() => {
-  //   setsDateString(moment(new Date(state.ClickDate)));
-  //   seteDateString(moment(new Date(state.ClickDate)));
-  //   setBody({
-  //     ...body,
-  //     sdt: moment(new Date(state.ClickDate)).format("YYYY-MM-DD"),
-  //     edt: moment(new Date(state.ClickDate)).format("YYYY-MM-DD"),
-  //   });
-  // }, [state.ClickDate]);
+  useEffect(() => {
+    setsDateString(moment(new Date(state.click_state)));
+    seteDateString(moment(new Date(state.click_state)));
+    setBody({
+      ...body,
+      sdt: moment(new Date(state.click_state)).format("YYYY-MM-DD"),
+      edt: moment(new Date(state.click_state)).format("YYYY-MM-DD"),
+    });
+  }, [state.click_state]);
 
   // useEffect(() => {
   //   if (state.CalendarPlus) {
@@ -102,6 +105,16 @@ export default function CalendarModal({
       console.log(res);
       if (res.payload.status === 200) {
         setIsModalVisible(false);
+        setBody({
+          ...body,
+          plan: "",
+          content: "",
+          sdt: moment().format("YYYY-MM-DD"),
+          edt: moment().format("YYYY-MM-DD"),
+          stime: moment().format("HH:mm"),
+          etime: moment().format("HH:mm"),
+          addr: "",
+        });
         state.post_calendar_response = false;
       }
     });
@@ -232,35 +245,6 @@ export default function CalendarModal({
   //     state.userlistresponse = false;
   //   }
   // }, [state2.userlistresponse]);
-
-  // 일정 등록 후 모달 닫기
-  // useEffect(() => {
-  //   if (state.postState) {
-  //     setBody({
-  //       ...body,
-  //       dept_idx: 0,
-  //       acc_idx: 0,
-  //       plan: "",
-  //       content: "",
-  //       sdt: moment().format("YYYY-MM-DD"),
-  //       edt: moment().format("YYYY-MM-DD"),
-  //       stime: moment().format("HH:mm"),
-  //       etime: moment().format("HH:mm"),
-  //       location: "",
-  //       pub_yn: "Y",
-  //       pub_mans: "",
-  //       alarm_yn: "Y",
-  //       alarm_min: 10,
-  //     });
-  //     setCheckAlarm(false);
-  //     setAlarmTime(10);
-  //     setSelectedItems([]);
-  //     setIsModalVisible(false);
-  //     state.ClickDate = undefined;
-  //     // dispatch(getCalendarLists.call(Cdata));
-  //     state.postState = false;
-  //   }
-  // }, [state.postState]);
 
   return (
     <>

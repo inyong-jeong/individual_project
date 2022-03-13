@@ -31,6 +31,7 @@ import {
   DELETE_CALENDAR,
   DELETE_CALENDAR_LOADING,
   DELETE_CALENDAR_ERROR,
+  CALENDAR_DATE,
 } from "../_actions/types";
 
 const initialState = {
@@ -190,6 +191,11 @@ export default function User(state = initialState, action) {
         ...state,
         delete_calendar_rs: action.payload,
         delete_calendar_response: false,
+      };
+    case CALENDAR_DATE:
+      return {
+        ...state,
+        click_state: action.payload,
       };
     default:
       return state;

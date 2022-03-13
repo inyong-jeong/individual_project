@@ -11,7 +11,8 @@ import { GetCalendars } from "../../_actions/user_actions";
 import CalendarModal from "./CalendarModal";
 import CalendarDetailModal from "./CalendarDetailModal";
 import CalendarEditModal from "./CalendarEditModal";
-// import { CALENDAR_DATE, CALENDAR_PLUS, CALENDAR_EVENT } from 'constants/actionTypes';
+
+import { CALENDAR_DATE } from "../../_actions/types";
 
 export default function MyCalendar(props) {
   const dispatch = useDispatch();
@@ -41,15 +42,18 @@ export default function MyCalendar(props) {
   const localizer = momentLocalizer(moment);
 
   const onSelectSlot = (event) => {
+    console.log(event);
     setIsModalVisible(true);
     setCalendarDate(moment(event.slots[0]).format("YYYY-MM-DD"));
-    // dispatch({
-    //   type: CALENDAR_DATE,
-    //   payload: moment(event.slots[0]).format('YYYY-MM-DD')
-    // })
+    dispatch({
+      type: CALENDAR_DATE,
+      payload: moment(event.slots[0]).format("YYYY-MM-DD"),
+    });
   };
+  console.log(state.click_state);
 
   const handleOnSelect = (e, v) => {
+    console.log(e);
     // dispatch(getCalendarList.call({
     //   p_idx: e.p_idx
     // }))
@@ -110,7 +114,7 @@ export default function MyCalendar(props) {
   // 캘린더 리스트 호출
   useEffect(() => {
     dispatch(GetCalendars.call(Cdata));
-  }, [Cdata]);
+  }, [Cdata, state.post_calendar_response]);
 
   // 캘린더 디테일 확인 후 닫을 때 리스트 다시 호출
   // useEffect(() => {
