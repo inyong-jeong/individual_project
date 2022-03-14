@@ -50,7 +50,7 @@ export default function MyCalendar(props) {
       payload: moment(event.slots[0]).format("YYYY-MM-DD"),
     });
   };
-  console.log(state.click_state);
+  // console.log(state.click_state);
 
   const handleOnSelect = (e, v) => {
     console.log(e);
