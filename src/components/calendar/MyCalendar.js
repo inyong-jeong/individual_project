@@ -7,7 +7,7 @@ import "moment/locale/ko";
 import { useMediaQuery } from "react-responsive";
 
 import { useDispatch, useSelector } from "react-redux";
-import { GetCalendars } from "../../_actions/user_actions";
+import { GetCalendars, GetCalendar } from "../../_actions/user_actions";
 import CalendarModal from "./CalendarModal";
 import CalendarDetailModal from "./CalendarDetailModal";
 import CalendarEditModal from "./CalendarEditModal";
@@ -42,7 +42,6 @@ export default function MyCalendar(props) {
   const localizer = momentLocalizer(moment);
 
   const onSelectSlot = (event) => {
-    console.log(event);
     setIsModalVisible(true);
     setCalendarDate(moment(event.slots[0]).format("YYYY-MM-DD"));
     dispatch({
@@ -54,28 +53,35 @@ export default function MyCalendar(props) {
 
   const handleOnSelect = (e, v) => {
     // console.log(e);
-    // dispatch(getCalendarList.call({
-    //   p_idx: e.p_idx
-    // }))
-    // dispatch(getCalendarLists.call({
-    //   cyear: e.start.getFullYear(),
-    //   cmonth: moment(e.start).format('MM'),
-    //   cday: moment(e.start).format('DD')
-    // }))
-    setIsModalDVisible(true);
+    console.log(e);
+
+    // dispatch(
+    //   GetCalendar.call({
+    //     p_idx: e.p_idx,
+    //   })
+    // );
+    // dispatch(
+    //   GetCalendars.call({
+    //     cyear: e.start.getFullYear(),
+    //     cmonth: moment(e.start).format("MM"),
+    //     cday: moment(e.start).format("DD"),
+    //   })
+    // );
+    // setIsModalDVisible(true);
   };
 
   const handleOnNavigate = (e, v) => {
-    let data = undefined;
-    if (e.getMonth() === new Date().getMonth()) {
-      data = new Date();
-    } else {
-      data = new Date(e.getFullYear(), e.getMonth(), 1);
-    }
-    dispatch({
-      // type: CALENDAR_EVENT,
-      payload: data,
-    });
+    console.log(e);
+    // let data = undefined;
+    // if (e.getMonth() === new Date().getMonth()) {
+    //   data = new Date();
+    // } else {
+    //   data = new Date(e.getFullYear(), e.getMonth(), 1);
+    // }
+    // dispatch({
+    //   type: CALENDAR_EVENT,
+    //   payload: data,
+    // });
     setCdata({
       ...Cdata,
       cyear: moment(e).format("YYYY"),
@@ -85,7 +91,7 @@ export default function MyCalendar(props) {
   // console.log(22);
   //캘린더 list 가공 함수
   function FilterList(lists) {
-    console.log(lists);
+    console.log("캘린더 가공 함수 리스트", lists);
     let result = [];
     for (let i = 0; i < lists.length; i++) {
       result[i] = {
@@ -113,6 +119,7 @@ export default function MyCalendar(props) {
 
   // 캘린더 리스트 호출
   useEffect(() => {
+    console.log(Cdata);
     dispatch(GetCalendars.call(Cdata));
   }, [Cdata, state.post_calendar_response]);
 
@@ -123,12 +130,9 @@ export default function MyCalendar(props) {
   //   }
   // }, [isModalDVisible])
 
-  console.log(isModalVisible);
-
   // 캘린더 리스트 받아오면 리스트 데이터 set
   useEffect(() => {
     if (state.get_calendars_response) {
-      console.log(state.get_calendars_rs);
       // console.log(state.getListsRes);
       setmtEventsList(FilterList(state.get_calendars_rs));
       state.get_calendars_response = false;
