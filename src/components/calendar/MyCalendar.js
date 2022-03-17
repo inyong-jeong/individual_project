@@ -50,10 +50,8 @@ export default function MyCalendar(props) {
     });
   };
   // console.log(state.click_state);
-
+  console.log(22);
   const handleOnSelect = (e, v) => {
-    // console.log(e);
-    // console.log(e);
     // dispatch(
     //   GetCalendar.call({
     //     p_idx: e.p_idx,
