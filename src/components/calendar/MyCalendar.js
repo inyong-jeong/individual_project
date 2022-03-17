@@ -53,8 +53,7 @@ export default function MyCalendar(props) {
 
   const handleOnSelect = (e, v) => {
     // console.log(e);
-    console.log(e);
-
+    // console.log(e);
     // dispatch(
     //   GetCalendar.call({
     //     p_idx: e.p_idx,
