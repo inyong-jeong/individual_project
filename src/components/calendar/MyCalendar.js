@@ -24,7 +24,7 @@ export default function MyCalendar(props) {
 
   const [mtEventsList, setmtEventsList] = useState([]);
 
-  // console.log(12345);
+  console.log(12345);
   const [Cdata, setCdata] = useState({
     cyear: moment().format("YYYY"),
     cmonth: moment().format("MM"),
