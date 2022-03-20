@@ -53,21 +53,21 @@ export default function CalendarDetailModal({
     }
   };
 
-  useEffect(() => {
-    if (state.getListState) {
-      console.log(234);
-      let memberlist = state.getListPub.map((v) => v.user_name);
-      console.log(memberlist);
-      setCouserList(memberlist);
-    }
-  }, [state.getListState]);
+  // useEffect(() => {
+  //   if (state.getListState) {
+  //     console.log(234);
+  //     let memberlist = state.getListPub.map((v) => v.user_name);
+  //     console.log(memberlist);
+  //     setCouserList(memberlist);
+  //   }
+  // }, [state.getListState]);
 
-  useEffect(() => {
-    if (state.deleteState) {
-      setIsModalDVisible(false);
-      // dispatch(getCalendarLists.call(Cdata));
-    }
-  }, [state.deleteState]);
+  // useEffect(() => {
+  //   if (state.deleteState) {
+  //     setIsModalDVisible(false);
+  //     dispatch(getCalendarLists.call(Cdata));
+  //   }
+  // }, [state.deleteState]);
 
   const AlarmOption = [
     { label: "정시", value: 0 },
