@@ -26,7 +26,8 @@ export default function CalendarDetailModal({
   Cdata,
 }) {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.Calendar);
+  // const state = useSelector((state) => state.Calendar);
+  const state = useSelector((state) => state.User);
 
   const [CouserList, setCouserList] = useState([]);
 
@@ -79,14 +80,15 @@ export default function CalendarDetailModal({
   ];
 
   const getCalendarDetailList = (idx) => {
-    dispatch();
+    // dispatch();
     // getCalendarList.call({
     //   p_idx: idx,
     // })
   };
+  console.log(state.getListRes);
   return (
     <>
-      {state.getListRes.length > 0 && true ? (
+      {state.getListRes.length > 0 ? (
         <Modal
           title="일정 상세"
           visible={isModalDVisible}
@@ -116,13 +118,13 @@ export default function CalendarDetailModal({
                     }}
                   />
                   <span>
-                    {ConvertDate(state.getListRes[0].sdt)} &nbsp;
-                    {ConvertTime(state.getListRes[0].stime)}
+                    {/* {ConvertDate(state.getListRes[0].sdt)} &nbsp; */}
+                    {/* {ConvertTime(state.getListRes[0].stime)} */}
                   </span>
                   &nbsp;<span>~</span>&nbsp;
                   <span>
-                    {ConvertDate(state.getListRes[0].edt)}&nbsp;{" "}
-                    {ConvertTime(state.getListRes[0].etime)}
+                    {/* {ConvertDate(state.getListRes[0].edt)}&nbsp;{" "} */}
+                    {/* {ConvertTime(state.getListRes[0].etime)} */}
                   </span>
                 </div>
                 {state.getListRes[0].content !== "" && (
@@ -247,13 +249,13 @@ export default function CalendarDetailModal({
                     }}
                   />
                   <span>
-                    {ConvertDate(state.getListRes[0].sdt)} &nbsp;
-                    {ConvertTime(state.getListRes[0].stime)}
+                    {/* {ConvertDate(state.getListRes[0].sdt)} &nbsp; */}
+                    {/* {ConvertTime(state.getListRes[0].stime)} */}
                   </span>
                   &nbsp;<span>~</span>&nbsp;
                   <span>
-                    {ConvertDate(state.getListRes[0].edt)}&nbsp;{" "}
-                    {ConvertTime(state.getListRes[0].etime)}
+                    {/* {ConvertDate(state.getListRes[0].edt)}&nbsp;{" "} */}
+                    {/* {ConvertTime(state.getListRes[0].etime)} */}
                   </span>
                 </div>
                 {state.getListRes[0].content !== "" && (

@@ -47,7 +47,7 @@ const initialState = {
   keyword: "",
   get_calendars_rs: null,
   get_calendars_response: false,
-  get_calendar_rs: null,
+  getListRes: [],
   get_calendar_response: false,
   post_calendar_rs: null,
   post_calendar_response: false,
@@ -122,19 +122,19 @@ export default function User(state = initialState, action) {
     case GET_CALENDAR_LIST:
       return {
         ...state,
-        get_calendar_rs: action.payload,
-        get_calendar_response: false,
+        getListRes: action.payload.message,
+        get_calendar_response: true,
       };
     case GET_CALENDAR_LIST_LOADING:
       return {
         ...state,
-        get_calendar_rs: action.payload,
-        get_calendar_response: true,
+        // getListRes: action.payload,
+        get_calendar_response: false,
       };
     case GET_CALENDAR_LIST_ERROR:
       return {
         ...state,
-        get_calendar_rs: action.payload,
+        getListRes: action.payload,
         get_calendar_response: false,
       };
     //일정등록

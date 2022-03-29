@@ -24,7 +24,6 @@ export default function MyCalendar(props) {
 
   const [mtEventsList, setmtEventsList] = useState([]);
 
-  console.log(12345);
   const [Cdata, setCdata] = useState({
     cyear: moment().format("YYYY"),
     cmonth: moment().format("MM"),
@@ -38,7 +37,6 @@ export default function MyCalendar(props) {
   //   setIsModalVisible(true);
   // };
 
-  console.log(22);
   const localizer = momentLocalizer(moment);
 
   const onSelectSlot = (event) => {
@@ -57,7 +55,7 @@ export default function MyCalendar(props) {
       GetCalendar({
         id: e.p_idx,
       })
-    );
+    ).then((res) => console.log(res));
     // dispatch(
     //   GetCalendars.call({
     //     cyear: e.start.getFullYear(),
@@ -65,7 +63,7 @@ export default function MyCalendar(props) {
     //     cday: moment(e.start).format("DD"),
     //   })
     // );
-    // setIsModalDVisible(true);
+    setIsModalDVisible(true);
   };
 
   const handleOnNavigate = (e, v) => {
@@ -168,11 +166,11 @@ export default function MyCalendar(props) {
           CalendarDate={CalendarDate}
           onSelectSlot={onSelectSlot}
         />
-        {/* <CalendarDetailModal
+        <CalendarDetailModal
           Cdata={Cdata}
           setIsModalDVisible={setIsModalDVisible}
           isModalDVisible={isModalDVisible}
-        /> */}
+        />
         <CalendarEditModal Cdata={Cdata} />
       </div>
     </>
