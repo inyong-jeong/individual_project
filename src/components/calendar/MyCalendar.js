@@ -55,7 +55,7 @@ export default function MyCalendar(props) {
       GetCalendar({
         id: e.p_idx,
       })
-    ).then((res) => console.log(res));
+    );
     // dispatch(
     //   GetCalendars.call({
     //     cyear: e.start.getFullYear(),
