@@ -55,7 +55,11 @@ export default function MyCalendar(props) {
       GetCalendar({
         id: e.p_idx,
       })
-    );
+    ).then((res) => {
+      if (res.payload.status === 200) {
+        state.get_calendar_response = false;
+      }
+    });
     // dispatch(
     //   GetCalendars.call({
     //     cyear: e.start.getFullYear(),
