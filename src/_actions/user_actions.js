@@ -20,6 +20,7 @@ import {
   POST_CALENDAR,
   PUT_CALENDAR,
   DELETE_CALENDAR,
+  GET_CALENDAR_LIST_LOADING,
 } from "../_actions/types";
 import { LIST_SERVER, CALENDAR_SERVER } from "../components/config";
 //일지 리스트 불러오기
@@ -122,6 +123,12 @@ export function GetCalendar(dataToSubmit) {
   return {
     type: GET_CALENDAR_LIST,
     payload: request,
+  };
+}
+
+export function GetCalendarLoading() {
+  return {
+    type: GET_CALENDAR_LIST_LOADING,
   };
 }
 //일정 등록

@@ -7,7 +7,11 @@ import "moment/locale/ko";
 import { useMediaQuery } from "react-responsive";
 
 import { useDispatch, useSelector } from "react-redux";
-import { GetCalendars, GetCalendar } from "../../_actions/user_actions";
+import {
+  GetCalendars,
+  GetCalendar,
+  GetCalendarLoading,
+} from "../../_actions/user_actions";
 import CalendarModal from "./CalendarModal";
 import CalendarDetailModal from "./CalendarDetailModal";
 import CalendarEditModal from "./CalendarEditModal";
@@ -50,7 +54,8 @@ export default function MyCalendar(props) {
   // console.log(state.click_state);
   // console.log(22);
   const handleOnSelect = (e, v) => {
-    // console.log(e.p_idx);
+    // console.log(e.p_idx);3
+    GetCalendarLoading();
     dispatch(
       GetCalendar({
         id: e.p_idx,

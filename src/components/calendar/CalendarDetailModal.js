@@ -30,7 +30,7 @@ export default function CalendarDetailModal({
   const state = useSelector((state) => state.User);
 
   const [CouserList, setCouserList] = useState([]);
-  const [calendarLog, setCalendarLog] = useState([]);
+  // const [, setstate.] = useState([]);
 
   const handleOk = () => {
     dispatch();
@@ -88,16 +88,16 @@ export default function CalendarDetailModal({
   };
   console.log(state.getListRes);
 
-  useEffect(() => {
-    if (state.get_calendar_response) {
-      setCalendarLog(state.getListRes.message);
-    }
-  }, [state.get_calendar_response]);
-  console.log(calendarLog);
+  // useEffect(() => {
+  //   if (state.get_calendar_response) {
+  //     setstate.getListRes(state.getListRes);
+  //   }
+  // }, [state.get_calendar_response]);
+  // console.log(state.getListRes);
 
   return (
     <>
-      {calendarLog.length > 0 ? (
+      {state.getListRes.length > 0 ? (
         <Modal
           title="일정 상세"
           visible={isModalDVisible}
@@ -107,14 +107,14 @@ export default function CalendarDetailModal({
           okText={<span>삭제</span>}
         >
           <>
-            {calendarLog.length > 0 && (
+            {state.getListRes.length > 0 && (
               <div>
                 <div style={{ display: "flex" }}>
                   <Log
                     stroke="#aaa"
                     style={{ marginRight: "6px", alignSelf: "center" }}
                   />
-                  <span>{calendarLog[0].plan}</span>
+                  <span>{state.getListRes[0].plan}</span>
                 </div>
                 <Divider style={{ marginBottom: 10, marginTop: 10 }} />
                 <div style={{ display: "flex" }}>
@@ -136,7 +136,7 @@ export default function CalendarDetailModal({
                     {/* {ConvertTime(state.getListRes[0].etime)} */}
                   </span>
                 </div>
-                {calendarLog[0].content !== "" && (
+                {state.getListRes[0].content !== "" && (
                   <>
                     <Divider style={{ marginBottom: 10, marginTop: 10 }} />
                     <div style={{ display: "flex" }}>
@@ -144,11 +144,11 @@ export default function CalendarDetailModal({
                         stroke="#aaa"
                         style={{ marginRight: "6px", alignSelf: "center" }}
                       />
-                      <span>{calendarLog[0].content}</span>
+                      <span>{state.getListRes[0].content}</span>
                     </div>
                   </>
                 )}
-                {calendarLog[0].addr !== "" && (
+                {state.getListRes[0].addr !== "" && (
                   <>
                     <Divider style={{ marginBottom: 10, marginTop: 10 }} />
                     <div style={{ display: "flex" }}>
@@ -160,7 +160,7 @@ export default function CalendarDetailModal({
                           alignSelf: "center",
                         }}
                       />
-                      <span>{calendarLog[0].addr}</span>
+                      <span>{state.getListRes[0].addr}</span>
                     </div>
                   </>
                 )}
@@ -180,7 +180,7 @@ export default function CalendarDetailModal({
                     <Switch
                       size="small"
                       disabled={true}
-                      checked={calendarLog[0].alarm_yn === "Y" ? true : false}
+                      checked={state.getListRes[0].alarm_yn === "Y" ? true : false}
                     />
                   </div>
                 </div> */}
@@ -202,7 +202,7 @@ export default function CalendarDetailModal({
                     })}
                 </div> */}
                 <Divider dashed style={{ marginBottom: 10, marginTop: 10 }} />
-                {calendarLog.map((v) => {
+                {state.getListRes.map((v) => {
                   return (
                     <div
                       className="calendar_list mb-2"
@@ -236,14 +236,14 @@ export default function CalendarDetailModal({
           okText={<span>삭제</span>}
         >
           <>
-            {calendarLog.length > 0 && (
+            {state.getListRes.length > 0 && (
               <div>
                 <div style={{ display: "flex" }}>
                   <Log
                     stroke="#aaa"
                     style={{ marginRight: "6px", alignSelf: "center" }}
                   />
-                  <span>{calendarLog[0].plan}</span>
+                  <span>{state.getListRes[0].plan}</span>
                 </div>
                 <Divider style={{ marginBottom: 10, marginTop: 10 }} />
                 <div style={{ display: "flex" }}>
@@ -265,7 +265,7 @@ export default function CalendarDetailModal({
                     {/* {ConvertTime(state.getListRes[0].etime)} */}
                   </span>
                 </div>
-                {calendarLog[0].content !== "" && (
+                {state.getListRes[0].content !== "" && (
                   <>
                     <Divider style={{ marginBottom: 10, marginTop: 10 }} />
                     <div style={{ display: "flex" }}>
@@ -273,11 +273,11 @@ export default function CalendarDetailModal({
                         stroke="#aaa"
                         style={{ marginRight: "6px", alignSelf: "center" }}
                       />
-                      <span>{calendarLog[0].content}</span>
+                      <span>{state.getListRes[0].content}</span>
                     </div>
                   </>
                 )}
-                {calendarLog[0].addr !== "" && (
+                {state.getListRes[0].addr !== "" && (
                   <>
                     <Divider style={{ marginBottom: 10, marginTop: 10 }} />
                     <div style={{ display: "flex" }}>
@@ -289,7 +289,7 @@ export default function CalendarDetailModal({
                           alignSelf: "center",
                         }}
                       />
-                      <span>{calendarLog[0].addr}</span>
+                      <span>{state.getListRes[0].addr}</span>
                     </div>
                   </>
                 )}
@@ -299,7 +299,7 @@ export default function CalendarDetailModal({
                     stroke="#aaa"
                     style={{ marginRight: "6px", alignSelf: "center" }}
                   />
-                  {/* <span>{calendarLog.user_name}</span> */}
+                  {/* <span>{state.getListRes.user_name}</span> */}
                   {CouserList.length > 0 &&
                     CouserList.map((v) => {
                       return (
@@ -311,7 +311,7 @@ export default function CalendarDetailModal({
                     })}
                 </div>
                 <Divider dashed style={{ marginBottom: 10, marginTop: 10 }} />
-                {calendarLog.map((v) => {
+                {state.getListRes.map((v) => {
                   return (
                     <div
                       className="calendar_list mb-2"
