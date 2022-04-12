@@ -19,7 +19,7 @@ import { ReactComponent as ShareIcon } from "../../assets/icons/main/share.svg";
 import { ReactComponent as Noti } from "../../assets/icons/noti.svg";
 
 // import { CALENDAR_EDIT_MODAL } from "constants/actionTypes";
-
+import { DeleteCalendar } from "../../_actions/user_actions";
 export default function CalendarDetailModal({
   isModalDVisible,
   setIsModalDVisible,
@@ -33,10 +33,7 @@ export default function CalendarDetailModal({
   // const [, setstate.] = useState([]);
 
   const handleOk = () => {
-    dispatch();
-    // deleteCalendar.call({
-    //   p_idx: state.getListRes[0].p_idx,
-    // })
+    dispatch(DeleteCalendar({ id: state.getListRes[0].c_idx }));
   };
 
   const handleCancel = (close) => {
@@ -103,7 +100,7 @@ export default function CalendarDetailModal({
           visible={isModalDVisible}
           onOk={handleOk}
           onCancel={handleCancel}
-          cancelText={<span>수정</span>}
+          cancelText={<span>닫기</span>}
           okText={<span>삭제</span>}
         >
           <>
