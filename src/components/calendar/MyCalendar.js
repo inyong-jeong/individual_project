@@ -126,7 +126,7 @@ export default function MyCalendar(props) {
   useEffect(() => {
     console.log(Cdata);
     dispatch(GetCalendars.call(Cdata));
-  }, [Cdata, state.post_calendar_response]);
+  }, [Cdata, state.post_calendar_response, state.delete_calendar_response]);
 
   // 캘린더 디테일 확인 후 닫을 때 리스트 다시 호출
   // useEffect(() => {

@@ -178,13 +178,13 @@ export default function User(state = initialState, action) {
       return {
         ...state,
         delete_calendar_rs: action.payload,
-        delete_calendar_response: false,
+        delete_calendar_response: true,
       };
     case DELETE_CALENDAR_LOADING:
       return {
         ...state,
         delete_calendar_rs: action.payload,
-        delete_calendar_response: true,
+        delete_calendar_response: false,
       };
     case DELETE_CALENDAR_ERROR:
       return {

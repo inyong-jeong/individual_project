@@ -33,7 +33,12 @@ export default function CalendarDetailModal({
   // const [, setstate.] = useState([]);
 
   const handleOk = () => {
-    dispatch(DeleteCalendar({ id: state.getListRes[0].c_idx }));
+    dispatch(DeleteCalendar({ id: state.getListRes[0].c_idx })).then((res) => {
+      console.log(res);
+      if (res.payload.status === 200) {
+        setIsModalDVisible(false);
+      }
+    });
   };
 
   const handleCancel = (close) => {
