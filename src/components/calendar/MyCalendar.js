@@ -76,7 +76,7 @@ export default function MyCalendar(props) {
   };
 
   const handleOnNavigate = (e, v) => {
-    console.log(e);
+    // console.log(e);
     // let data = undefined;
     // if (e.getMonth() === new Date().getMonth()) {
     //   data = new Date();
