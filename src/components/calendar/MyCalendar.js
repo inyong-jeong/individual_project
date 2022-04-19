@@ -124,7 +124,7 @@ export default function MyCalendar(props) {
 
   // 캘린더 리스트 호출
   useEffect(() => {
-    console.log(Cdata);
+    // console.log(Cdata);
     dispatch(GetCalendars.call(Cdata));
   }, [Cdata, state.post_calendar_response, state.delete_calendar_response]);
 
