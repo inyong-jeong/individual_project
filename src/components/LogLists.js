@@ -34,7 +34,12 @@ const LogLists = ({ loglists }) => {
         }
         renderItem={(item) => (
           <List.Item
-            style={{ position: "relative", whiteSpace: "pre-wrap" }}
+            style={{
+              position: "relative",
+              whiteSpace: "pre-wrap",
+              overFlow: "hidden",
+              textOverflow: "ellipsis",
+            }}
             onClick={() => {
               history.push(`/List/Detail/${item.log_idx}`);
             }}
@@ -90,7 +95,19 @@ const LogLists = ({ loglists }) => {
                 </div>
               }
               description={
-                <div>
+                <div
+                  style={{
+                    fontSize: 12,
+                    color: "#333333",
+                    textOverflow: "ellipsis",
+                    display: "block",
+                    wordWrap: "break-word",
+                    overflow: "hidden",
+                    maxHeight: "8.6em",
+                    lineHeight: "1.8em",
+                    fontWeight: 300,
+                  }}
+                >
                   <Highlighter
                     searchWords={[state.keyword]}
                     autoEscape={true}
