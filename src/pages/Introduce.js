@@ -59,14 +59,26 @@ export default function Introduce() {
     <>
       <Row>
         <Col span={24} className="mb-24">
-          <Card title={<span style={{ fontSize: "30px" }}>인적사항</span>}>
+          <Card
+            title={
+              <span style={{ fontSize: "30px", textAlign: "center" }}>
+                인적사항
+              </span>
+            }
+          >
             <div
               style={{
+                textAlign: "center",
                 margin: isMobile ? "10px 40px" : "20px 40px",
                 fontSize: isMobile ? "12px" : "20px",
               }}
             >
-              <div style={{ display: "flex", justifyContent: "space-around" }}>
+              <div
+                style={{
+                  display: isMobile ? "block" : "flex",
+                  justifyContent: isMobile ? "center" : "space-around",
+                }}
+              >
                 <div style={{ display: "flex" }}>
                   <div>
                     <ProfileOutlined style={{ fontSize: "150%" }} />
@@ -74,7 +86,9 @@ export default function Introduce() {
                   <div
                     style={{
                       padding: "0px 20px",
-                      width: isMobile ? "72px" : "128px",
+                      width: isMobile ? "250px" : "128px",
+                      marginBottom: isMobile ? "20px" : "0px",
+                      textAlign: isMobile ? "center" : "none",
                     }}
                   >
                     <span>
@@ -90,7 +104,8 @@ export default function Introduce() {
                   <div
                     style={{
                       padding: "0px 20px",
-                      width: isMobile ? "72px" : "128px",
+                      width: isMobile ? "250px" : "128px",
+                      marginBottom: isMobile ? "20px" : "0px",
                     }}
                   >
                     <span>
@@ -107,7 +122,8 @@ export default function Introduce() {
                   <div
                     style={{
                       padding: "0px 20px",
-                      width: isMobile ? "72px" : "200px",
+                      width: isMobile ? "250px" : "200px",
+                      marginBottom: isMobile ? "20px" : "0px",
                     }}
                   >
                     <span>
@@ -118,7 +134,12 @@ export default function Introduce() {
                 </div>
               </div>
               <div style={{ marginBottom: "40px" }}></div>
-              <div style={{ display: "flex", justifyContent: "space-around" }}>
+              <div
+                style={{
+                  display: isMobile ? "block" : "flex",
+                  justifyContent: "space-around",
+                }}
+              >
                 <div style={{ display: "flex" }}>
                   <div>
                     <MailOutlined style={{ fontSize: "150%" }} />
@@ -126,7 +147,8 @@ export default function Introduce() {
                   <div
                     style={{
                       padding: "0px 20px",
-                      width: isMobile ? "100px" : "128px",
+                      width: isMobile ? "250px" : "128px",
+                      marginBottom: isMobile ? "20px" : "0px",
                     }}
                   >
                     <span>
@@ -142,7 +164,8 @@ export default function Introduce() {
                   <div
                     style={{
                       padding: "0px 20px",
-                      width: isMobile ? "72px" : "128px",
+                      width: isMobile ? "250px" : "128px",
+                      marginBottom: isMobile ? "20px" : "0px",
                     }}
                   >
                     <span>
@@ -158,7 +181,8 @@ export default function Introduce() {
                   <div
                     style={{
                       padding: "0px 20px",
-                      width: isMobile ? "72px" : "200px",
+                      width: isMobile ? "250px" : "200px",
+                      marginBottom: isMobile ? "20px" : "0px",
                     }}
                   >
                     <span>
