@@ -32,7 +32,7 @@ const List = () => {
     srch: "",
   });
 
-  console.log(loglists.length);
+  // console.log(loglists.length);
 
   const handleOnSearch = (value) => {
     console.log(1);
