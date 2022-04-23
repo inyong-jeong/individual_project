@@ -444,11 +444,11 @@ function Header({
               <span>로그아웃</span>
             </Link>
           )}
-          <Input
+          {/* <Input
             className="header-search"
             placeholder="검색하세요"
             prefix={<SearchOutlined />}
-          />
+          /> */}
         </Col>
       </Row>
     </>

@@ -45,35 +45,35 @@ const LogLists = ({ loglists }) => {
             }}
             className="list_item"
             key={item.log_idx}
-            actions={[
-              <div>
-                <IconText
-                  icon={StarOutlined}
-                  text="13"
-                  key="list-vertical-star-o"
-                />
-                <br />
-                <span>즐겨찾기</span>
-              </div>,
-              <div>
-                <IconText
-                  icon={LikeOutlined}
-                  text="23"
-                  key="list-vertical-like-o"
-                />
-                <br />
-                <span>좋아요</span>
-              </div>,
-              <div>
-                <IconText
-                  icon={MessageOutlined}
-                  text="2"
-                  key="list-vertical-message"
-                />
-                <br />
-                <span>댓글달기</span>
-              </div>,
-            ]}
+            // actions={[
+            //   <div>
+            //     <IconText
+            //       icon={StarOutlined}
+            //       text="13"
+            //       key="list-vertical-star-o"
+            //     />
+            //     <br />
+            //     <span>즐겨찾기</span>
+            //   </div>,
+            //   <div>
+            //     <IconText
+            //       icon={LikeOutlined}
+            //       text="23"
+            //       key="list-vertical-like-o"
+            //     />
+            //     <br />
+            //     <span>좋아요</span>
+            //   </div>,
+            //   <div>
+            //     <IconText
+            //       icon={MessageOutlined}
+            //       text="2"
+            //       key="list-vertical-message"
+            //     />
+            //     <br />
+            //     <span>댓글달기</span>
+            //   </div>,
+            // ]}
             extra={
               <img
                 width={272}
