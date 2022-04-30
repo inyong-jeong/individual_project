@@ -31,7 +31,7 @@ const List = () => {
     page_no: 1,
     srch: "",
   });
-  console.log(1231231);
+
   // console.log(loglists.length);
 
   const handleOnSearch = (value) => {
