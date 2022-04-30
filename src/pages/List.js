@@ -64,7 +64,7 @@ const List = () => {
     dispatch(SetKeyword(e.target.value));
   };
 
-  // console.log("test");
+  console.log("test");
   // console.log("test");3
 
   return (
