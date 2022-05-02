@@ -59,8 +59,8 @@ Within the download you'll find the following directories and files:
 ```
 Muse Ant Design Dashboard
     ├── muse-ant-design-dashboard
-    │   ├── public
-    │   │   ├── index.html
+    │   ├── public - 공통파일
+    │   │   ├── index.html
     │   │   ├── favicon.png
     │   │   ├── minifest.json
     │   │   └── robots.txt
