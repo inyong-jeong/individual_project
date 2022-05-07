@@ -36,7 +36,7 @@ const List = () => {
 
   const handleOnSearch = (value) => {
     console.log(1);
-    // console.log(value);
+    console.log(value);
 
     dispatch(GetSearch(data)).then((res) => {
       setLoading(true);
