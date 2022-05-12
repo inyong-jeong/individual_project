@@ -35,7 +35,7 @@ const List = () => {
   // console.log(loglists.length);
 
   const handleOnSearch = (value) => {
-    // console.log(1);
+    console.log(1);
     // console.log(value);
 
     dispatch(GetSearch(data)).then((res) => {
