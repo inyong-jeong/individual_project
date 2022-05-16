@@ -288,12 +288,12 @@ function Header({
       <Row gutter={[24, 0]}>
         <Col span={24} md={6}>
           <Breadcrumb>
-            <Breadcrumb.Item>
+            {/* <Breadcrumb.Item>
               <NavLink to="/">페이지</NavLink>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item style={{ textTransform: "capitalize" }}>
+            </Breadcrumb.Item> */}
+            {/* <Breadcrumb.Item style={{ textTransform: "capitalize" }}>
               {name.replace("/", "")}
-            </Breadcrumb.Item>
+            </Breadcrumb.Item> */}
           </Breadcrumb>
           <div className="ant-page-header-heading">
             <span

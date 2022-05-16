@@ -192,7 +192,7 @@ function Sidenav({ color, onPress }) {
             <span className="label">자기소개</span>
           </NavLink>
         </Menu.Item>
-        <Menu.Item key="1">
+        {/* <Menu.Item key="1">
           <NavLink to="/dashboard">
             <span
               className="icon"
@@ -204,8 +204,8 @@ function Sidenav({ color, onPress }) {
             </span>
             <span className="label">대시보드</span>
           </NavLink>
-        </Menu.Item>
-        <Menu.Item key="2">
+        </Menu.Item> */}
+        {/* <Menu.Item key="2">
           <NavLink to="/tables">
             <span
               className="icon"
@@ -217,7 +217,7 @@ function Sidenav({ color, onPress }) {
             </span>
             <span className="label">테이블</span>
           </NavLink>
-        </Menu.Item>
+        </Menu.Item> */}
         <Menu.Item key="3">
           <NavLink to="/billing">
             <span
@@ -300,7 +300,7 @@ function Sidenav({ color, onPress }) {
         <Menu.Item className="menu-item-header" key="5">
           계정 관리
         </Menu.Item>
-        <Menu.Item key="9">
+        {/* <Menu.Item key="9">
           <NavLink to="/profile">
             <span
               className="icon"
@@ -312,7 +312,7 @@ function Sidenav({ color, onPress }) {
             </span>
             <span className="label">프로필</span>
           </NavLink>
-        </Menu.Item>
+        </Menu.Item> */}
         {!getCookieValue("jwt") && (
           <Menu.Item key="7">
             <NavLink to="/sign-in">
