@@ -274,7 +274,7 @@ function Header({
     history.push("/sign-in");
   };
 
-  console.log(window.location.href);
+  // console.log(window.location.href);
 
   useEffect(() => {
     // setVisible((visible) => !visible);
