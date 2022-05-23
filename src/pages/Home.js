@@ -1,5 +1,4 @@
-
-import { getCookieValue }  from '../cmm/cmm.js';
+import { getCookieValue } from "../cmm/cmm.js";
 import { useState, useEffect } from "react";
 import {
   Card,
@@ -37,7 +36,6 @@ import team4 from "../assets/images/team-4.jpg";
 import card from "../assets/images/info-card-1.jpg";
 
 function Home() {
-
   const { Title, Text } = Typography;
 
   const onChange = (e) => console.log(`radio checked:${e.target.value}`);
@@ -131,15 +129,14 @@ function Home() {
     </svg>,
   ];
 
-  const [sales, setSales] = useState('53,000₩');
-  const [users, setUsers] = useState('3,200');
-  const [account, setAccount] = useState('+1,200');
-  const [orders, setOrders] = useState('13,200₩');
-  const [percent1, setPercent1] = useState('+30%')
-  const [percent2, setPercent2] = useState('+20%')
-  const [percent3, setPercent3] = useState('-20%')
-  const [percent4, setPercent4] = useState('+10%')
-
+  const [sales, setSales] = useState("53,000₩");
+  const [users, setUsers] = useState("3,200");
+  const [account, setAccount] = useState("+1,200");
+  const [orders, setOrders] = useState("13,200₩");
+  const [percent1, setPercent1] = useState("+30%");
+  const [percent2, setPercent2] = useState("+20%");
+  const [percent3, setPercent3] = useState("-20%");
+  const [percent4, setPercent4] = useState("+10%");
 
   const count = [
     {
@@ -343,57 +340,62 @@ function Home() {
   };
 
   useEffect(() => {
-    const cookie = getCookieValue('jwt');
-    console.log(cookie);
-  }, [])
-  
+    const cookie = getCookieValue("jwt");
+    // console.log(cookie);
+  }, []);
+
   const handleOnMonth = () => {
-    setSales('53,000₩');
-    setUsers('3,200');
-    setAccount('+1,200');
-    setOrders('13,200₩');
-    setPercent1('+40%')
-    setPercent2('+34%')
-    setPercent3('-17%')
-    setPercent4('+14%')
-  }
+    setSales("53,000₩");
+    setUsers("3,200");
+    setAccount("+1,200");
+    setOrders("13,200₩");
+    setPercent1("+40%");
+    setPercent2("+34%");
+    setPercent3("-17%");
+    setPercent4("+14%");
+  };
 
   const handleOnQuarter = () => {
-    setSales('64,000₩');
-    setUsers('4,200');
-    setAccount('+1,600');
-    setOrders('20,300₩');
-    setPercent1('+55%')
-    setPercent2('+42%')
-    setPercent3('-23%')
-    setPercent4('+19%')
-  }
+    setSales("64,000₩");
+    setUsers("4,200");
+    setAccount("+1,600");
+    setOrders("20,300₩");
+    setPercent1("+55%");
+    setPercent2("+42%");
+    setPercent3("-23%");
+    setPercent4("+19%");
+  };
 
   const handleOnHalf = () => {
-    setSales('78,000₩');
-    setUsers('6,200');
-    setAccount('+3,200');
-    setOrders('30,300₩');
-    setPercent1('+67%')
-    setPercent2('+49%')
-    setPercent3('-28%')
-    setPercent4('+46%')
-  }
+    setSales("78,000₩");
+    setUsers("6,200");
+    setAccount("+3,200");
+    setOrders("30,300₩");
+    setPercent1("+67%");
+    setPercent2("+49%");
+    setPercent3("-28%");
+    setPercent4("+46%");
+  };
 
   return (
     <>
       <div className="layout-content">
-        <Row gutter={[8,8]}>
-          <Col span={8} className='mb-24'>
-            <Button onClick={handleOnMonth} style={{width:'100%'}}>월간</Button>
+        <Row gutter={[8, 8]}>
+          <Col span={8} className="mb-24">
+            <Button onClick={handleOnMonth} style={{ width: "100%" }}>
+              월간
+            </Button>
           </Col>
           <Col span={8}>
-            <Button onClick={handleOnQuarter} style={{width:'100%'}}>분기</Button>
+            <Button onClick={handleOnQuarter} style={{ width: "100%" }}>
+              분기
+            </Button>
           </Col>
           <Col span={8}>
-          <Button onClick={handleOnHalf} style={{width:'100%'}}>반기</Button>
+            <Button onClick={handleOnHalf} style={{ width: "100%" }}>
+              반기
+            </Button>
           </Col>
-          
         </Row>
         <Row className="rowgap-vbox" gutter={[24, 0]}>
           {count.map((c, index) => (
