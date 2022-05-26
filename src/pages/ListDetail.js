@@ -33,6 +33,8 @@ const ListDetail = () => {
     });
   }, []);
 
+  console.log(1122);
+
   const contentStyle = {
     whiteSpace: "pre-wrap",
   };
