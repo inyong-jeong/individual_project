@@ -28,7 +28,7 @@ const ListDetail = () => {
         SetDetail(res.data.message[0]);
         setLoading(false);
       } else {
-        console.log("err");
+        // console.log("err");
       }
     });
   }, []);
