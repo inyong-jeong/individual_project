@@ -45,7 +45,7 @@ const ListDetail = () => {
       .then((res) => {
         console.log(res);
         if (res.payload.status === 200) {
-          console.log(res);
+          // console.log(res);
           history.goBack();
           state.post_response = false;
         } else {
