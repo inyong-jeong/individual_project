@@ -43,7 +43,7 @@ const ListDetail = () => {
     dispatch(DeleteListLoading());
     dispatch(DeleteList(id))
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.payload.status === 200) {
           // console.log(res);
           history.goBack();
