@@ -47,7 +47,7 @@ function Log() {
     setIsModalVisible(false);
   };
 
-  console.log("aaa");
+  // console.log("aaa");
 
   const handleComplete = (data, event) => {
     let fullAddress = data.address;
