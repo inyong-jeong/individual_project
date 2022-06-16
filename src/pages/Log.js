@@ -76,7 +76,7 @@ function Log() {
   const handleOnSave = () => {
     axios.post(`${LIST_SERVER}/regi_log`, body).then((res) => {
       if (res.status === 200) {
-        // console.log(res);
+        console.log(res);
       } else {
         alert("fail");
       }
