@@ -122,7 +122,7 @@ export default function SignIn() {
   const onFinish = (values) => {
     axios.post(`${USER_SERVER}/login`, values).then((res) => {
       if (res.data) {
-        console.log(res);
+        // console.log(res);
         document.cookie = `jwt=${res.data}`;
         history.push("/dashboard");
       } else {
