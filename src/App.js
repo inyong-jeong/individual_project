@@ -26,10 +26,13 @@ import Main from "./components/layout/Main";
 import "antd/dist/antd.css";
 import "./assets/styles/main.css";
 import "./assets/styles/responsive.css";
+import "./assets/styles/functions.css";
+import "./assets/styles/liveFilter.css";
 import ListDetail from "./pages/ListDetail";
 import Introduce from "./pages/Introduce";
 import Calendar from "./pages/Calendar/index";
-
+import Functions from "./pages/Functions";
+import LiveFilter from "./pages/FunctionsDetail/LiveFilter";
 function App() {
   return (
     <div className="App">
@@ -49,6 +52,12 @@ function App() {
           <Route exact path="/List" component={List} />
           <Route exact path="/List/Detail/:id" component={ListDetail} />
           <Route exact path="/calendar" component={Calendar} />
+          <Route exact path="/functions" component={Functions} />
+          <Route
+            exact
+            path="/FunctionsDetail/LiveFilter"
+            component={LiveFilter}
+          />
 
           <Route exact path="/introduce" component={Introduce} />
 

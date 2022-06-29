@@ -192,6 +192,19 @@ function Sidenav({ color, onPress }) {
             <span className="label">자기소개</span>
           </NavLink>
         </Menu.Item>
+        <Menu.Item key="1">
+          <NavLink to="/functions">
+            <span
+              className="icon"
+              style={{
+                background: page === "functions" ? color : "",
+              }}
+            >
+              {dashboard}
+            </span>
+            <span className="label">기능모음집</span>
+          </NavLink>
+        </Menu.Item>
         {/* <Menu.Item key="1">
           <NavLink to="/dashboard">
             <span
