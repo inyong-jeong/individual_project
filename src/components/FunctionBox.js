@@ -10,7 +10,7 @@ export default function FunctionBox() {
       title: "제목",
       content:
         "내용sadasdasdadadsadasd\nasddddddssssssaaaaaaa\nffffffggggdadasdasda",
-      url: "LiveFilter",
+      url: "https://coruscating-syrniki-e98de1.netlify.app/pages/livefilter.html",
     },
     {
       key: 2,
@@ -33,7 +33,8 @@ export default function FunctionBox() {
   ];
 
   const handleOnClick = (url) => {
-    history.push(`/FunctionsDetail/${url}`);
+    window.open(url, "_black");
+    // history.push(url);
   };
 
   return (
