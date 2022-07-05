@@ -9,7 +9,7 @@
 =========================================================
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getModal } from "../cmm/cmm.js";
 import {
   Modal,
@@ -149,6 +149,21 @@ export default function SignUp() {
     setIsModalVisible(true);
   };
 
+  const initializeNaverLogin = () => {
+    const { naver } = window;
+    const naverLogin = new naver.LoginWithNaverId({
+      clientId: "xjjp8BsdOv_GqdKe5aWS",
+      callbackUrl: "https://inyongjeong.com",
+      isPopup: false,
+      loginButton: { color: "white", type: 1, height: 47 },
+    });
+    naverLogin.init();
+  };
+
+  useEffect(() => {
+    initializeNaverLogin();
+  }, []);
+
   return (
     <>
       <Modal
@@ -220,6 +235,7 @@ export default function SignUp() {
             bordered="false"
           >
             <div className="sign-up-gateways">
+              <div id="naverIdLogin" />
               <Button
                 type="false"
                 onClick={() => {
