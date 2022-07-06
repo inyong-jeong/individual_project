@@ -33,6 +33,8 @@ import Introduce from "./pages/Introduce";
 import Calendar from "./pages/Calendar/index";
 import Functions from "./pages/Functions";
 import LiveFilter from "./pages/FunctionsDetail/LiveFilter";
+import Map from "./pages/Map";
+
 function App() {
   return (
     <div className="App">
@@ -53,6 +55,8 @@ function App() {
           <Route exact path="/List/Detail/:id" component={ListDetail} />
           <Route exact path="/calendar" component={Calendar} />
           <Route exact path="/functions" component={Functions} />
+          <Route exact path="/Map" component={Map} />
+
           <Route
             exact
             path="/FunctionsDetail/LiveFilter"
