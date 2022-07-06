@@ -28,56 +28,66 @@ export default function FunctionBox() {
     {
       key: 4,
       img: "/assets/js.png",
-      title: "두더지게임",
+      title: "두더지 잡기 게임",
       content: "skills: html, css, vanillaJs\n 두더지 잡기 게임",
+      url: "https://coruscating-syrniki-e98de1.netlify.app/pages/game.html",
     },
     {
       key: 5,
-      img: "/assets/js.png",
+      img: "/assets/text_effect.png",
       title: "text effect",
       content: "skills: html, css, vanillaJs\n 텍스트 효과",
+      url: "https://coruscating-syrniki-e98de1.netlify.app/pages/texteffect.html",
     },
     {
       key: 6,
-      img: "/assets/js.png",
+      img: "/assets/skeleton.png",
       title: "스켈레톤",
       content: "skills: html, css, vanillaJs\n 스켈레톤 효과",
+      url: "https://coruscating-syrniki-e98de1.netlify.app/pages/skeleton.html",
     },
     {
       key: 7,
-      img: "/assets/js.png",
+      img: "/assets/notes.png",
       title: "그림판",
       content: "skills: html, css, vanillaJs\n 그림판",
+      url: "https://coruscating-syrniki-e98de1.netlify.app/pages/notes.html",
     },
     {
       key: 8,
-      img: "/assets/js.png",
+      img: "/assets/animation.png",
       title: "애니메이션",
-      content: "skills: html, css, vanillaJs\n 그림판",
+      content: "skills: html, css, vanillaJs\n 애니메이션 효과",
+      url: "https://coruscating-syrniki-e98de1.netlify.app/pages/animation.html",
     },
     {
       key: 9,
-      img: "/assets/js.png",
-      title: "제목4",
-      content: "내용4",
+      img: "/assets/fastlogin.png",
+      title: "네이버 간편로그인",
+      content: "skills: react, 네이버 open api ",
+      url: "https://inyongjeong.com/sign-up",
     },
     {
       key: 10,
-      img: "/assets/js.png",
-      title: "제목4",
-      content: "내용4",
+      img: "/assets/logwrite.png",
+      title: "블로그 기능",
+      content:
+        "skills: react, antd, node, mysql \n 글쓰기, 삭제, 상세보기, 검색, 페이지네이션 기능입니다.",
+      url: "https://inyongjeong.com/List",
     },
     {
       key: 11,
-      img: "/assets/js.png",
-      title: "제목4",
-      content: "내용4",
+      img: "/assets/calendar.png",
+      title: "캘린더 기능",
+      content:
+        "skills: react-big-calendar, node, mysql \n reat-big-calendar 에서 팝업을 띄어 일정작성, 일정삭제 등등의 기능을 커스텀 했습니다. ",
     },
     {
       key: 12,
-      img: "/assets/js.png",
-      title: "제목4",
-      content: "내용4",
+      img: "/assets/payment.png",
+      title: "결제기능",
+      content:
+        "skills: 아임포트 , kg이니시스 테스트 서버를 구축해서 테스트 결제프로그램을 개발했습니다. ",
     },
     {
       key: 13,
@@ -166,7 +176,7 @@ export default function FunctionBox() {
   ];
 
   const handleOnClick = (url) => {
-    window.open(url, "_black");
+    window.open(url, "_blank");
     // history.push(url);
   };
 
