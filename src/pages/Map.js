@@ -15,7 +15,7 @@ const Map = () => {
 
     let map = new kakao.maps.Map(container, options);
 
-    console.log("loading kakaomap");
+    // console.log("loading kakaomap");
   }, []);
 
   return (
