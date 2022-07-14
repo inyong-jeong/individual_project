@@ -28,6 +28,7 @@ import "./assets/styles/main.css";
 import "./assets/styles/responsive.css";
 import "./assets/styles/functions.css";
 import "./assets/styles/liveFilter.css";
+import "./assets/styles/map.css";
 import ListDetail from "./pages/ListDetail";
 import Introduce from "./pages/Introduce";
 import Calendar from "./pages/Calendar/index";

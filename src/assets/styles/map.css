@@ -1,0 +1,95 @@
+/* #result-list {
+  width: 60%;
+  height: 500px;
+  overflow: auto;
+}
+
+#pagination {
+  margin-top: 3rem;
+}
+
+#pagination a {
+  color: black;
+  font-size: 20px;
+  text-decoration:none;
+  margin: 0 10px;
+}
+
+#pagination a.on {
+  color: lightblue;
+  font-weight: bold;
+} */
+
+
+
+.form__label {
+  display: flex;
+}
+
+.form__input {
+  border-radius: 5px;
+  border: 1px solid gray;
+  width: 40%;
+}
+.form__submit {
+  border-radius: 5px;
+  border: 1px solid gray;
+  background-color: yellow;
+}
+.map-container {
+  /* border: 1px solid gray; */
+  /* background-color: aquamarine; */
+}
+
+.map {
+  width: 44%;
+  height: 35vh;
+}
+.result-keyword {
+  color: blue;
+  margin-right: 5px;
+}
+
+#search-result {
+  background-color: ghostwhite;
+  overflow-y: auto;
+  height: 300px;
+  width: 44%;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border: 1px solid gainsboro;
+}
+
+.result-text {
+  padding: 10px;
+  /* border-bottom: 1px solid gray; */
+  /* display: flex; */
+  /* align-items: center; */
+  background-color: white;
+}
+
+#places-list {
+  /* padding-left: 0px; */
+  padding: 10px;
+  /* border: 1px solid gray; */
+  list-style: none;
+}
+
+.info {
+  border-bottom: 1px solid gainsboro;
+}
+#pagination {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  padding: 10px;
+}
+
+#pagination a {
+  padding: 5px;
+  color: black;
+}
+
+#pagination a.on {
+  color: blue;
+}
