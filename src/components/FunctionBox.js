@@ -48,10 +48,10 @@ export default function FunctionBox() {
     },
     {
       key: 7,
-      img: "/assets/notes.png",
+      img: "/assets/drawing.png",
       title: "그림판",
       content: "skills: html, css, vanillaJs\n 그림판",
-      url: "https://coruscating-syrniki-e98de1.netlify.app/pages/notes.html",
+      url: "https://coruscating-syrniki-e98de1.netlify.app/pages/drawing.html",
     },
     {
       key: 8,
@@ -81,6 +81,7 @@ export default function FunctionBox() {
       title: "캘린더 기능",
       content:
         "skills: react-big-calendar, node, mysql \n reat-big-calendar 에서 팝업을 띄어 일정작성, 일정삭제 등등의 기능을 커스텀 했습니다. ",
+      url: "https://inyongjeong.com/calendar",
     },
     {
       key: 12,
@@ -88,12 +89,15 @@ export default function FunctionBox() {
       title: "결제기능",
       content:
         "skills: 아임포트 , kg이니시스 테스트 서버를 구축해서 테스트 결제프로그램을 개발했습니다. ",
+      url: "https://inyongjeong.com/billing",
     },
     {
       key: 13,
-      img: "/assets/js.png",
-      title: "제목4",
-      content: "내용4",
+      img: "/assets/map.png",
+      title: "카카오 길찾기 기능",
+      content:
+        "skills: react, js, kakao map api 를 사용하여 길찾기, 리스트 불러오기, 해당 주소 route, 마커 기능 구현",
+      url: "https://inyongjeong.com/map",
     },
     {
       key: 14,

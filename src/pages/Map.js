@@ -38,7 +38,7 @@ const Map = () => {
                 className="form__input"
                 name="place"
                 onChange={keywordChange}
-                placeholder="검색어를 입력해주세요. (ex: 강남 맛집)"
+                placeholder="검색어를 입력해주세요. (ex: 샤로수길)"
                 required
               />
               <div className="btn-box">

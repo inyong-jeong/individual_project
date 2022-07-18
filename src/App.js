@@ -29,12 +29,15 @@ import "./assets/styles/responsive.css";
 import "./assets/styles/functions.css";
 import "./assets/styles/liveFilter.css";
 import "./assets/styles/map.css";
+import "./assets/styles/cardprofile.css";
+
 import ListDetail from "./pages/ListDetail";
 import Introduce from "./pages/Introduce";
 import Calendar from "./pages/Calendar/index";
 import Functions from "./pages/Functions";
 import LiveFilter from "./pages/FunctionsDetail/LiveFilter";
 import Map from "./pages/Map";
+import CardProfile from "./pages/CardProfile";
 
 function App() {
   return (
@@ -57,6 +60,7 @@ function App() {
           <Route exact path="/calendar" component={Calendar} />
           <Route exact path="/functions" component={Functions} />
           <Route exact path="/Map" component={Map} />
+          <Route exact path="/CardProfile" component={CardProfile} />
 
           <Route
             exact
