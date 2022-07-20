@@ -22,7 +22,7 @@ justify-content: end;
   display: flex;
   overflow: auto;
   flex-wrap: wrap;
-
+  justify-content: center;
 }
 
 .function1 {
