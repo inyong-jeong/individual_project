@@ -46,7 +46,7 @@ export default function LiveFilter() {
 
   return (
     <div className="filter-body">
-      <div className="container">
+      <div className="filter-container">
         <header className="header">
           <h4 className="title">Live 사용자 검색</h4>
           <small className="subtitle">이름이나 지역을 통해 검색하세요</small>

@@ -37,12 +37,12 @@
   }
 }
 
-form {
+/* form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .field {
   margin: 5px;
@@ -95,10 +95,10 @@ input[type="file"] {
   opacity: 1;
 }
 
-img {
+/* img {
   width: auto;
   height: 100%;
-}
+} */
 
 label {
   text-transform: uppercase;
