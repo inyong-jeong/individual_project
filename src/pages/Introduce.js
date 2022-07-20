@@ -208,11 +208,11 @@ export default function Introduce() {
               <Title level={5}>Career</Title>
               <Paragraph className="lastweek" style={{ marginBottom: 24 }}>
                 에스아이티(한화그룹 자회사 SI 업체){" "}
-                <span className="bnb2">50%</span>&nbsp;&nbsp; 더클랩(IT
-                스타트업) <span style={{ color: "#1990ff" }}>40%</span>
+                <span className="bnb2">40%</span>&nbsp;&nbsp; 더클랩(IT
+                스타트업) <span style={{ color: "#1990ff" }}>35%</span>
                 <br />
                 <span>하나금융그룹(하나캐피탈)</span>&nbsp;
-                <span style={{ color: "#00b2b2" }}>10%</span>
+                <span style={{ color: "#00b2b2" }}>25%</span>
               </Paragraph>
 
               <Timeline
@@ -291,7 +291,18 @@ export default function Introduce() {
           </Card>
         </Col>
       </Row>
-      <h1 style={{ fontSize: "24px" }}>현업에서 구현한 기능 리스트</h1>
+      <div style={{ display: "flex" }}>
+        <h1 style={{ fontSize: "24px" }}>현업에서 구현한 기능 리스트</h1>
+        <a
+          href="https://inyongjeong.com/functions"
+          style={{ marginTop: "3px", marginLeft: "8px", fontSize: "20px" }}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          기능모음집바로가기
+        </a>
+      </div>
+
       <Row gutter={[12, 12]}>
         <Col xs={24} sm={24} md={24} lg={6} xl={6} xxl={6} className="mb-24">
           <Card

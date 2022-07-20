@@ -6,9 +6,9 @@ export default function Functions() {
   return (
     <>
       <div className="functions">기능모음집</div>
-      <form id="form">
+      {/* <form id="form">
         <input type="text" id="search" className="search" placeholder="검색" />
-      </form>
+      </form> */}
       <FunctionBox />
     </>
   );

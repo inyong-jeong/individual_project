@@ -29,7 +29,6 @@ import "./assets/styles/responsive.css";
 import "./assets/styles/functions.css";
 import "./assets/styles/liveFilter.css";
 import "./assets/styles/map.css";
-import "./assets/styles/cardprofile.css";
 
 import ListDetail from "./pages/ListDetail";
 import Introduce from "./pages/Introduce";

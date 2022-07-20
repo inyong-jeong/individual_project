@@ -26,13 +26,6 @@ export default function FunctionBox() {
       url: "https://coruscating-syrniki-e98de1.netlify.app/pages/notes.html",
     },
     {
-      key: 4,
-      img: "/assets/js.png",
-      title: "두더지 잡기 게임",
-      content: "skills: html, css, vanillaJs\n 두더지 잡기 게임",
-      url: "https://coruscating-syrniki-e98de1.netlify.app/pages/game.html",
-    },
-    {
       key: 5,
       img: "/assets/text_effect.png",
       title: "text effect",
@@ -98,84 +91,6 @@ export default function FunctionBox() {
       content:
         "skills: react, js, kakao map api 를 사용하여 길찾기, 리스트 불러오기, 해당 주소 route, 마커 기능 구현",
       url: "https://inyongjeong.com/map",
-    },
-    {
-      key: 14,
-      img: "/assets/js.png",
-      title: "제목4",
-      content: "내용4",
-    },
-    {
-      key: 15,
-      img: "/assets/js.png",
-      title: "제목4",
-      content: "내용4",
-    },
-    {
-      key: 16,
-      img: "/assets/js.png",
-      title: "제목4",
-      content: "내용4",
-    },
-    {
-      key: 17,
-      img: "/assets/js.png",
-      title: "제목4",
-      content: "내용4",
-    },
-    {
-      key: 18,
-      img: "/assets/js.png",
-      title: "제목4",
-      content: "내용4",
-    },
-    {
-      key: 19,
-      img: "/assets/js.png",
-      title: "제목4",
-      content: "내용4",
-    },
-    {
-      key: 20,
-      img: "/assets/js.png",
-      title: "제목4",
-      content: "내용4",
-    },
-    {
-      key: 21,
-      img: "/assets/js.png",
-      title: "제목4",
-      content: "내용4",
-    },
-    {
-      key: 22,
-      img: "/assets/js.png",
-      title: "제목4",
-      content: "내용4",
-    },
-    {
-      key: 23,
-      img: "/assets/js.png",
-      title: "제목4",
-      content: "내용4",
-    },
-    {
-      key: 24,
-      img: "/assets/js.png",
-      title: "제목4",
-      content: "내용4",
-    },
-    {
-      key: 25,
-      img: "/assets/js.png",
-      title: "제목4",
-      content: "내용4",
-    },
-    {
-      key: 26,
-      img: "/assets/js.png",
-      title: "제목4",
-      content: "내용4",
     },
   ];
 

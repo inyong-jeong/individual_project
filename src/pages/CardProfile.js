@@ -1,4 +1,5 @@
 import React from "react";
+import "../assets/styles/cardprofile.css";
 
 const ImgUpload = ({ onChange, src }) => (
   <label htmlFor="photo-upload" className="custom-file-upload fas">
@@ -11,14 +12,14 @@ const ImgUpload = ({ onChange, src }) => (
 
 const Name = ({ onChange, value }) => (
   <div className="field">
-    <label htmlFor="name">name:</label>
+    <label htmlFor="name">이름:</label>
     <input
       id="name"
       type="text"
       onChange={onChange}
       maxlength="25"
       value={value}
-      placeholder="Alexa"
+      placeholder="정인용"
       required
     />
   </div>
@@ -26,14 +27,14 @@ const Name = ({ onChange, value }) => (
 
 const Status = ({ onChange, value }) => (
   <div className="field">
-    <label htmlFor="status">status:</label>
+    <label htmlFor="status">직업:</label>
     <input
       id="status"
       type="text"
       onChange={onChange}
       maxLength="35"
       value={value}
-      placeholder="It's a nice day!"
+      placeholder="웹개발자"
       required
     />
   </div>
@@ -42,7 +43,7 @@ const Status = ({ onChange, value }) => (
 const Profile = ({ onSubmit, src, name, status }) => (
   <div className="card">
     <form onSubmit={onSubmit}>
-      <h1>Profile Card</h1>
+      <h1>프로필</h1>
       <label className="custom-file-upload fas">
         <div className="img-wrap">
           <img for="photo-upload" src={src} />
@@ -51,7 +52,7 @@ const Profile = ({ onSubmit, src, name, status }) => (
       <div className="name">{name}</div>
       <div className="status">{status}</div>
       <button type="submit" className="edit">
-        Edit Profile{" "}
+        프로필 수정{" "}
       </button>
     </form>
   </div>
@@ -60,10 +61,10 @@ const Profile = ({ onSubmit, src, name, status }) => (
 const Edit = ({ onSubmit, children }) => (
   <div className="card">
     <form onSubmit={onSubmit}>
-      <h1>Profile Card</h1>
+      <h1>프로필</h1>
       {children}
       <button type="submit" className="save">
-        Save{" "}
+        저장{" "}
       </button>
     </form>
   </div>
