@@ -26,6 +26,7 @@ const List = () => {
     setIsModalVisible(false);
   };
 
+  console.log(222);
   const [loglists, setLogList] = useState([]);
   const [data, setData] = useState({
     page_no: 1,
